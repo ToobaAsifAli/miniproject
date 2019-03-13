@@ -22,3 +22,4 @@ C:\Users\ok\Documents\GitHub\miniproject\miniproject\obj\Debug\miniproject.exe
 C:\Users\ok\Documents\GitHub\miniproject\miniproject\obj\Debug\miniproject.pdb
 C:\Users\ok\Documents\GitHub\miniproject\miniproject\bin\Debug\MaterialSkin.dll
 C:\Users\ok\Documents\GitHub\miniproject\miniproject\obj\Debug\miniproject.csproj.CopyComplete
+C:\Users\ok\Documents\GitHub\miniproject\miniproject\obj\Debug\miniproject.Evaluation.resources

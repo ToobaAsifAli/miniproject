@@ -69,6 +69,7 @@ namespace miniproject
 
             con.Close();
             disp_data();
+           
             MessageBox.Show("Data Inserted");
         
 
@@ -330,8 +331,8 @@ namespace miniproject
 
 
             con.Open();
-            
-            string display = String.Format("UPDATE Person set FirstName = '" + textBox1.Text + "'WHERE RegistrationNo = '{0}'", textBox7.Text); 
+            string display = String.Format("UPDATE PERSON WHERE RegistrationNo = '{0}'", textBox7.Text);
+          //  string display = String.Format("UPDATE Person set FirstName = '" + textBox1.Text + "'WHERE RegistrationNo = '{0}'", textBox7.Text); 
             SqlCommand cmd = new SqlCommand(display, con);
             cmd.ExecuteNonQuery();
 

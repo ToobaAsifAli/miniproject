@@ -28,5 +28,13 @@ namespace miniproject
             this.Hide();
             f1.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Evaluation f2 = new Evaluation();
+            this.Hide();
+            f2.Show();
+
+        }
     }
 }
