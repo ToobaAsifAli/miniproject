@@ -23,3 +23,7 @@ C:\Users\ok\Documents\GitHub\miniproject\miniproject\obj\Debug\miniproject.pdb
 C:\Users\ok\Documents\GitHub\miniproject\miniproject\bin\Debug\MaterialSkin.dll
 C:\Users\ok\Documents\GitHub\miniproject\miniproject\obj\Debug\miniproject.csproj.CopyComplete
 C:\Users\ok\Documents\GitHub\miniproject\miniproject\obj\Debug\miniproject.Evaluation.resources
+C:\Users\ok\Documents\GitHub\miniproject\miniproject\obj\Debug\miniproject.AddAdvisor.resources
+C:\Users\ok\Documents\GitHub\miniproject\miniproject\obj\Debug\miniproject.AdvisorManagement.resources
+C:\Users\ok\Documents\GitHub\miniproject\miniproject\obj\Debug\miniproject.AddProject.resources
+C:\Users\ok\Documents\GitHub\miniproject\miniproject\obj\Debug\miniproject.ProjectMagement.resources

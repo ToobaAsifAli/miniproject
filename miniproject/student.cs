@@ -42,13 +42,14 @@ namespace miniproject
             }
 
             //int gender = Convert.ToInt32(genderInt.ExecuteScalar ());
-
-            string per = "INSERT into Person(FirstName , LastName , Contact , Email , DateOfBirth , Gender) values ('" + textBox1.Text + "' , '" + textBox2.Text + "' , '" + textBox3.Text + "' , '" + textBox4.Text + "' , '" + textBox5.Text + "' , '" + value + "')";
             con.Close();
             con.Open();
+
+            string per = "INSERT into Person(FirstName , LastName , Contact , Email , DateOfBirth , Gender) values ('" + textBox1.Text + "' , '" + textBox2.Text + "' , '" + textBox3.Text + "' , '" + textBox4.Text + "' , '" + textBox5.Text + "' , '" + value + "')";
+
             SqlCommand persi = new SqlCommand(per, con);
             int i = persi.ExecuteNonQuery();
-
+          
             int value1 = 0;
             //----------------------------------------------------------------------------------------
             string query = "Select Id from Person where (Id = SCOPE_IDENTITY())";
@@ -68,10 +69,10 @@ namespace miniproject
 
 
             con.Close();
-            disp_data();
-           
+           disp_data();
             MessageBox.Show("Data Inserted");
-        
+        }
+
 
         //--------------------------------------------------------
         //con.Open();
@@ -176,7 +177,7 @@ namespace miniproject
 
 
 
-    }
+    
         public void disp_data()
         {
             con.Open();
@@ -353,6 +354,11 @@ namespace miniproject
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }

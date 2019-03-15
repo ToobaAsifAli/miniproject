@@ -36,5 +36,19 @@ namespace miniproject
             f2.Show();
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AdvisorManagement f3 = new AdvisorManagement();
+            this.Hide();
+            f3.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ProjectMagement f4 = new ProjectMagement();
+            this.Hide();
+            f4.Show();
+        }
     }
 }
