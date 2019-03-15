@@ -69,7 +69,15 @@ namespace miniproject
 
 
             con.Close();
-           disp_data();
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+            textBox4.Text = "";
+            textBox5.Text = "";
+            textBox7.Text = "";
+            comboBox1.Text = "";
+            
+            disp_data();
             MessageBox.Show("Data Inserted");
         }
 
@@ -331,17 +339,76 @@ namespace miniproject
 
 
 
-            con.Open();
-            string display = String.Format("UPDATE PERSON WHERE RegistrationNo = '{0}'", textBox7.Text);
-          //  string display = String.Format("UPDATE Person set FirstName = '" + textBox1.Text + "'WHERE RegistrationNo = '{0}'", textBox7.Text); 
-            SqlCommand cmd = new SqlCommand(display, con);
-            cmd.ExecuteNonQuery();
+            //  con.Open();
+            //  string display = String.Format("UPDATE PERSON WHERE RegistrationNo = '{0}'", textBox7.Text);
+            ////  string display = String.Format("UPDATE Person set FirstName = '" + textBox1.Text + "'WHERE RegistrationNo = '{0}'", textBox7.Text); 
+            //  SqlCommand cmd = new SqlCommand(display, con);
+            //  cmd.ExecuteNonQuery();
 
-            //cmd.CommandText = string.Format("DELETE FROM Person WHERE Email = '{0}'", email);
-            //cmd.ExecuteNonQuery();
-            con.Close();
-            disp_data();
+            //  //cmd.CommandText = string.Format("DELETE FROM Person WHERE Email = '{0}'", email);
+            //  //cmd.ExecuteNonQuery();
+            //  con.Close();
+            //  disp_data();
 
+
+
+            //if (con.State == ConnectionState.Closed)
+            //{
+            //    con.Open();
+            //}
+
+            //string gdv = "select Id FROM Lookup WHERE Category = 'GENDER' AND value ='" + comboBox1.Text.ToString() + "'";
+            //SqlCommand genderInt = new SqlCommand(gdv, con);
+            //int s = 0;
+            //SqlDataReader reader3 = genderInt.ExecuteReader();
+            //// genderInt.ExecuteNonQuery();
+            //while (reader3.Read())
+            //{
+            //    s = int.Parse(reader3[0].ToString());
+            //}
+            ////FirstName ='" + textBox2.Text + "' ,
+            //string que1 = string.Format("SELECT Id from Person Where Email = '" + textBox4.Text + "'");
+            //SqlCommand cmd = new SqlCommand(que1, con);
+            //var aa = cmd.ExecuteScalar().ToString();
+            //int s1 = int.Parse(aa);
+            //// int id =int.Parse( cmd.ExecuteScalar());
+            //string ps = "Update Person set FirstName ='" + textBox1.Text + "' ,  LastName= '" + textBox2.Text + "' , Contact = '" + textBox3.Text + "', Email = '" + textBox4.Text + "', DateOfBirth ='" + DateTime.Parse(textBox5.Text) + "', Gender = '" + s + "' WHERE Id= '" + s1 + "'";
+            //SqlCommand pesi = new SqlCommand(ps, con);
+            //int a = pesi.ExecuteNonQuery();
+            //string gender = comboBox2.Text.ToString();
+            //string desi = "select Id FROM Lookup WHERE Category = 'DESIGNATION' AND Value ='" + gender + "'";
+            //SqlCommand d = new SqlCommand(desi, con);
+            //int s2 = 0;
+            //SqlDataReader reader4 = d.ExecuteReader();
+            //// genderInt.ExecuteNonQuery();
+            //while (reader4.Read())
+            //{
+            //    s2 = int.Parse(reader4[0].ToString());
+            //}
+            //string st = "Update Advisor set Designation = '" + s2 + "',Salary = '" + int.Parse(textBox7.Text) + "' where Id ='" + s1 + "'";
+            //SqlCommand persi1 = new SqlCommand(st, con);
+            ////int j = persi1.ExecuteNonQuery();
+
+
+            //if (MessageBox.Show("Do you really want to Update this record", "Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            //{
+
+            //    MessageBox.Show("Record has been updated successfully");
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Row not Updated", "Update row", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
+            //con.Close();
+            //textBox1.Text = "";
+            //textBox2.Text = "";
+            //textBox3.Text = "";
+            //textBox4.Text = "";
+            //textBox5.Text = "";
+            //textBox7.Text = "";
+            //comboBox1.Text = "";
+            //comboBox2.Text = "";
+            //disp_data();
 
 
         }
@@ -360,7 +427,16 @@ namespace miniproject
 
         private void button1_Click(object sender, EventArgs e)
         {
+            AddStudent f2 = new AddStudent();
+            this.Hide();
+            f2.Show();
+        }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form1 f3 = new Form1();
+            this.Hide();
+            f3.Show();
         }
     }
 }

@@ -31,5 +31,26 @@ namespace miniproject
         {
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            AddAdvisor f1 = new AddAdvisor();
+            this.Hide();
+            f1.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form1 f2 = new Form1();
+            this.Hide();
+            f2.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form1 f3 = new Form1();
+            this.Hide();
+            f3.Show();
+        }
     }
 }

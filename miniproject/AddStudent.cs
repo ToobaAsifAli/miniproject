@@ -21,5 +21,26 @@ namespace miniproject
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            student f1 = new student();
+            this.Hide();
+            f1.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form1 f2 = new Form1();
+            this.Hide();
+            f2.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form1 f2 = new Form1();
+            this.Hide();
+            f2.Show();
+        }
     }
 }

@@ -80,11 +80,11 @@
     <Compile Include="Evaluation.Designer.cs">
       <DependentUpon>Evaluation.cs</DependentUpon>
     </Compile>
-    <Compile Include="FinalYearProjectManagement.cs">
+    <Compile Include="EvaluationManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FinalYearProjectManagement.Designer.cs">
-      <DependentUpon>FinalYearProjectManagement.cs</DependentUpon>
+    <Compile Include="EvaluationManagement.Designer.cs">
+      <DependentUpon>EvaluationManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -120,6 +120,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Evaluation.resx">
       <DependentUpon>Evaluation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EvaluationManagement.resx">
+      <DependentUpon>EvaluationManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

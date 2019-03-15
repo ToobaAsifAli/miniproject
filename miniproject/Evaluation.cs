@@ -22,19 +22,19 @@ namespace miniproject
 
         private void Insertlabel_Click(object sender, EventArgs e)
         {
-            con.Open();
-            SqlCommand cmd = con.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "insert into Evaluation values('" + textBox1.Text + "','" + textBox2.Text + "','" + textBox3.Text + "')";// + "insert into Student values('" + textBox7.Text + "')";
-            cmd.ExecuteNonQuery();
-            con.Close();
-            textBox1.Text = "";
-            textBox2.Text = "";
-            textBox3.Text = "";
+            //con.Open();
+            //SqlCommand cmd = con.CreateCommand();
+            //cmd.CommandType = CommandType.Text;
+            //cmd.CommandText = "insert into Evaluation values('" + textBox1.Text + "','" + textBox2.Text + "','" + textBox3.Text + "')";// + "insert into Student values('" + textBox7.Text + "')";
+            //cmd.ExecuteNonQuery();
+            //con.Close();
+            //textBox1.Text = "";
+            //textBox2.Text = "";
+            //textBox3.Text = "";
 
-            //   textBox7.Text = "";
-            //disp_data();
-            MessageBox.Show("Record inserted successfully");
+            ////   textBox7.Text = "";
+            ////disp_data();
+            //MessageBox.Show("Record inserted successfully");
         }
 
 
@@ -54,22 +54,108 @@ namespace miniproject
 
         private void Searchlabel_Click(object sender, EventArgs e)
         {
-            con.Open();
-            SqlCommand cmd = con.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select * from Evalution where Name ='" + textBox1.Text + "'";
-            textBox1.Text = "";
-            cmd.ExecuteNonQuery();
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
-            dataGridView1.DataSource = dt;
+            //con.Open();
+            //SqlCommand cmd = con.CreateCommand();
+            //cmd.CommandType = CommandType.Text;
+            //cmd.CommandText = "select * from Evalution where Name ='" + textBox1.Text + "'";
+            //textBox1.Text = "";
+            //cmd.ExecuteNonQuery();
+            //DataTable dt = new DataTable();
+            //SqlDataAdapter da = new SqlDataAdapter(cmd);
+            //da.Fill(dt);
+            //dataGridView1.DataSource = dt;
 
-            con.Close();
-            disp_data();
+            //con.Close();
+            //disp_data();
         }
 
         private void Deletelabel_Click(object sender, EventArgs e)
+        {
+            //con.Open();
+            //SqlCommand cmd = con.CreateCommand();
+            //cmd.CommandType = CommandType.Text;
+            //// cmd.CommandText = "delete from Person where values('" + textBox1.Text + "','" + textBox2.Text + "','" + textBox3.Text + "','" + textBox4.Text + "','" + textBox5.Text + "','" + textBox6.Text + "')";
+            //cmd.CommandText = "delete from Evaluation where Name ='" + textBox1.Text + "'";
+
+            //cmd.ExecuteNonQuery();
+            //con.Close();
+
+            //disp_data();
+
+
+            //dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
+            MessageBox.Show("Record deleted successfully");
+        }
+
+        private void Display_Click(object sender, EventArgs e)
+        {
+           // disp_data();
+        }
+
+        private void Updatelabel_Click(object sender, EventArgs e)
+        {  
+
+            //con.Open(); 
+            //SqlCommand cmd = con.CreateCommand();
+            //cmd.CommandType = CommandType.Text;
+
+
+            //cmd.CommandText = "update Evaluation set TotalMarks ='" + textBox2.Text + "' where Name = '" + textBox1.Text + "'";
+            //cmd.ExecuteNonQuery();
+            //cmd.CommandText = "update Evaluation set TotalWeightage ='" + textBox3.Text + "' where Name = '" + textBox1.Text + "'";
+     
+            //cmd.ExecuteNonQuery();
+            //con.Close();
+
+            //disp_data();
+
+
+            ////dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
+            //MessageBox.Show("Record updated successfully");
+        }
+
+        private void Evaluation_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form1 f2 = new Form1();
+            this.Hide();
+            f2.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            EvaluationManagement f3 = new EvaluationManagement();
+            this.Hide();
+            f3.Show();
+        }
+
+        private void Savebutton_Click(object sender, EventArgs e)
+        {
+            con.Open();
+            SqlCommand cmd = con.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "insert into Evaluation values('" + textBox1.Text + "','" + textBox2.Text + "','" + textBox3.Text + "')";// + "insert into Student values('" + textBox7.Text + "')";
+            cmd.ExecuteNonQuery();
+            con.Close();
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+
+            //   textBox7.Text = "";
+            //disp_data();
+            MessageBox.Show("Record inserted successfully");
+        }
+
+        private void Displaybutton_Click(object sender, EventArgs e)
+        {
+            disp_data();
+        }
+
+        private void Deletebutton_Click(object sender, EventArgs e)
         {
             con.Open();
             SqlCommand cmd = con.CreateCommand();
@@ -87,15 +173,9 @@ namespace miniproject
             MessageBox.Show("Record deleted successfully");
         }
 
-        private void Display_Click(object sender, EventArgs e)
+        private void Updatebutton_Click(object sender, EventArgs e)
         {
-            disp_data();
-        }
-
-        private void Updatelabel_Click(object sender, EventArgs e)
-        {  
-
-            con.Open(); 
+            con.Open();
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
@@ -103,7 +183,7 @@ namespace miniproject
             cmd.CommandText = "update Evaluation set TotalMarks ='" + textBox2.Text + "' where Name = '" + textBox1.Text + "'";
             cmd.ExecuteNonQuery();
             cmd.CommandText = "update Evaluation set TotalWeightage ='" + textBox3.Text + "' where Name = '" + textBox1.Text + "'";
-     
+
             cmd.ExecuteNonQuery();
             con.Close();
 
@@ -114,9 +194,21 @@ namespace miniproject
             MessageBox.Show("Record updated successfully");
         }
 
-        private void Evaluation_Load(object sender, EventArgs e)
+        private void Searchbutton_Click(object sender, EventArgs e)
         {
+            con.Open();
+            SqlCommand cmd = con.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select * from Evalution where Name ='" + textBox1.Text + "'";
+            textBox1.Text = "";
+            cmd.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
 
+            con.Close();
+            disp_data();
         }
     }
 }

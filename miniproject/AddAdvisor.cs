@@ -8,16 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
-
-
 
 namespace miniproject
 {
     public partial class AddAdvisor : MaterialSkin.Controls.MaterialForm
     {
-
-
         SqlConnection con = new SqlConnection("Data Source=DESKTOP-R6RA1PL\\TOOBAASIF;Initial Catalog=ProjectA;Persist Security Info=True;User ID=sa;Password=1212");
 
         public AddAdvisor()
@@ -25,78 +20,13 @@ namespace miniproject
             InitializeComponent();
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-       
-
-        private void Displaybutton_Click(object sender, EventArgs e)
-        {
-            disp_data();
-        }
-
-        private void Insertbutton_Click(object sender, EventArgs e)
-        {
-            //con.Open();
-
-
-
-
-            //string congo = comboBox1.SelectedItem.ToString();
-
-            //string genderValue = "select Id FROM Lookup WHERE Category = 'Designation' AND value ='" + congo + "'";
-            //SqlCommand genderInt = new SqlCommand(genderValue, con);
-            //int value = 0;
-            //SqlDataReader reader = genderInt.ExecuteReader();
-            //// genderInt.ExecuteNonQuery();
-            //while (reader.Read())
-            //{
-            //    value = int.Parse(reader[0].ToString());
-            //}
-
-            ////int gender = Convert.ToInt32(genderInt.ExecuteScalar ());
-
-            //string per = "INSERT into Person(FirstName , LastName , Contact , Email , DateOfBirth , Gender) values ('" + textBox2.Text + "' , '" + textBox3.Text + "' , '" + textBox4.Text + "' , '" + textBox5.Text + "' , '" + textBox6.Text + "' , '" + value + "')";
-
-            //SqlCommand persi = new SqlCommand(per, con);
-            //int i = persi.ExecuteNonQuery();
-            //int value1 = 0;
-            //string query = "Select Id from Person where (Id = SCOPE_IDENTITY())";
-            //SqlCommand cmd = new SqlCommand(query, con);
-            //var val = cmd.ExecuteScalar().ToString();
-            //value1 = int.Parse(val);
-            //string q = "insert into Advisor values('" + value1 + "','" + textBox1.Text.ToString() + "')";
-            //SqlCommand cmd1 = new SqlCommand(q, con);
-            //int j = cmd1.ExecuteNonQuery();
-            ////  string S_ID = string.Format("Select Id FROM Person where Email ='{0}'", email);
-            //// SqlCommand StuID = new SqlCommand(S_ID, conn);
-            //// int Id = Convert.ToInt32(StuID.ExecuteScalar());
-            //// string st = "Insert into Student values( '" + Id + "' ,'" + textBox1.Text + "')";
-            //// SqlCommand std = new SqlCommand(st, conn);
-            //// int ii = std.ExecuteNonQuery();
-
-
-            //con.Close();
-            //disp_data();
-            //MessageBox.Show("Data Inserted");
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void AddAdvisor_Load(object sender, EventArgs e)
         {
 
         }
 
         private void Savebutton_Click(object sender, EventArgs e)
         {
-
-
             if (textBox1.Text.Length == 0)
             {
                 MessageBox.Show("please fill the above boxes ");
@@ -134,7 +64,8 @@ namespace miniproject
 
             //int gender = Convert.ToInt32(genderInt.ExecuteScalar ());
 
-            string per = "INSERT into Person(FirstName , LastName , Contact , Email , DateOfBirth , Gender) values ('" + textBox1.Text + "' , '" + textBox2.Text + "' , '" + textBox3.Text + "' , '" + textBox4.Text + "' , '" + DateTime.Parse(textBox5.Text) + "' , '" + s + "')";
+            //string per = "INSERT into Person(FirstName , LastName , Contact , Email , DateOfBirth , Gender) values ('" + textBox1.Text + "' , '" + textBox2.Text + "' , '" + textBox3.Text + "' , '" + textBox4.Text + "' , '" + DateTime.Parse(textBox5.Text) + "' , '" + s + "')";
+            string per = "INSERT into Person(FirstName , LastName , Contact , Email , DateOfBirth , Gender) values ('" + textBox1.Text + "' , '" + textBox2.Text + "' , '" + textBox3.Text + "' , '" + textBox4.Text + "' , '" + textBox5.Text + "' , '" + s + "')";
 
             SqlCommand pesi = new SqlCommand(per, con);
             int a = pesi.ExecuteNonQuery();
@@ -163,7 +94,7 @@ namespace miniproject
             {
                 MessageBox.Show("Advisor has been assigned to you");
             }
-           
+
             con.Close();
             textBox1.Text = "";
             textBox2.Text = "";
@@ -237,10 +168,6 @@ namespace miniproject
             //    MessageBox.Show("Data Inserted");
         }
 
-        private void Displaybutton_Click_1(object sender, EventArgs e)
-        {
-           
-        }
         public void disp_data()
         {
             con.Open();
@@ -286,7 +213,7 @@ namespace miniproject
             disp_data();
 
 
-                     //      con.Open();
+            //      con.Open();
             //      SqlCommand cmd = con.CreateCommand();
             //      cmd.CommandType = CommandType.Text;
             //      // cmd.CommandText = "delete from Person where values('" + textBox1.Text + "','" + textBox2.Text + "','" + textBox3.Text + "','" + textBox4.Text + "','" + textBox5.Text + "','" + textBox6.Text + "')";
@@ -375,6 +302,8 @@ namespace miniproject
                 s = int.Parse(reader3[0].ToString());
             }
             //FirstName ='" + textBox2.Text + "' ,
+            con.Close();
+            con.Open();
             string que1 = string.Format("SELECT Id from Person Where Email = '" + textBox4.Text + "'");
             SqlCommand cmd = new SqlCommand(que1, con);
             var aa = cmd.ExecuteScalar().ToString();
@@ -419,25 +348,23 @@ namespace miniproject
             disp_data();
         }
 
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        private void Displaybutton_Click(object sender, EventArgs e)
         {
-            //if (string.IsNullOrWhiteSpace(textBox1.Text))
-            //{
-            //    e.Cancel = true;
-            //    textBox1.Focus();
-            //    errorProvider1.SetError(textBox1, "Name should not be left blank!");
-            //}
-            //else
-            //{
-            //    e.Cancel = false;
-            //    errorProvider1.SetError(textBox1, "");
-            //}
+            disp_data();
         }
 
-       
-        private void AddAdvisor_Load(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
+            Form1 f2 = new Form1();
+            this.Hide();
+            f2.Show();
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AdvisorManagement f3 = new AdvisorManagement();
+            this.Hide();
+            f3.Show();
         }
     }
 }

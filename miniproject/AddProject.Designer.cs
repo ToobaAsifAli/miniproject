@@ -34,13 +34,13 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.Titlelabel = new System.Windows.Forms.Label();
             this.Descriptionlabel = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.Searchbutton = new System.Windows.Forms.Button();
             this.Deletebutton = new System.Windows.Forms.Button();
             this.Updatebutton = new System.Windows.Forms.Button();
             this.Savebutton = new System.Windows.Forms.Button();
             this.Displaybutton = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,6 +84,61 @@
             this.Descriptionlabel.TabIndex = 15;
             this.Descriptionlabel.Text = "Description";
             // 
+            // Searchbutton
+            // 
+            this.Searchbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.Searchbutton.Location = new System.Drawing.Point(698, 316);
+            this.Searchbutton.Name = "Searchbutton";
+            this.Searchbutton.Size = new System.Drawing.Size(90, 37);
+            this.Searchbutton.TabIndex = 63;
+            this.Searchbutton.Text = "Search";
+            this.Searchbutton.UseVisualStyleBackColor = false;
+            this.Searchbutton.Click += new System.EventHandler(this.Searchbutton_Click);
+            // 
+            // Deletebutton
+            // 
+            this.Deletebutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.Deletebutton.Location = new System.Drawing.Point(698, 258);
+            this.Deletebutton.Name = "Deletebutton";
+            this.Deletebutton.Size = new System.Drawing.Size(90, 37);
+            this.Deletebutton.TabIndex = 62;
+            this.Deletebutton.Text = "Delete";
+            this.Deletebutton.UseVisualStyleBackColor = false;
+            this.Deletebutton.Click += new System.EventHandler(this.Deletebutton_Click);
+            // 
+            // Updatebutton
+            // 
+            this.Updatebutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.Updatebutton.Location = new System.Drawing.Point(698, 146);
+            this.Updatebutton.Name = "Updatebutton";
+            this.Updatebutton.Size = new System.Drawing.Size(90, 37);
+            this.Updatebutton.TabIndex = 61;
+            this.Updatebutton.Text = "Update";
+            this.Updatebutton.UseVisualStyleBackColor = false;
+            this.Updatebutton.Click += new System.EventHandler(this.Updatebutton_Click);
+            // 
+            // Savebutton
+            // 
+            this.Savebutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.Savebutton.Location = new System.Drawing.Point(698, 91);
+            this.Savebutton.Name = "Savebutton";
+            this.Savebutton.Size = new System.Drawing.Size(90, 37);
+            this.Savebutton.TabIndex = 60;
+            this.Savebutton.Text = "Save";
+            this.Savebutton.UseVisualStyleBackColor = false;
+            this.Savebutton.Click += new System.EventHandler(this.Savebutton_Click);
+            // 
+            // Displaybutton
+            // 
+            this.Displaybutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.Displaybutton.Location = new System.Drawing.Point(698, 204);
+            this.Displaybutton.Name = "Displaybutton";
+            this.Displaybutton.Size = new System.Drawing.Size(90, 37);
+            this.Displaybutton.TabIndex = 59;
+            this.Displaybutton.Text = "Display";
+            this.Displaybutton.UseVisualStyleBackColor = false;
+            this.Displaybutton.Click += new System.EventHandler(this.Displaybutton_Click);
+            // 
             // button2
             // 
             this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
@@ -93,6 +148,7 @@
             this.button2.Size = new System.Drawing.Size(36, 20);
             this.button2.TabIndex = 55;
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -104,56 +160,7 @@
             this.button1.TabIndex = 54;
             this.button1.Text = " ";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // Searchbutton
-            // 
-            this.Searchbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.Searchbutton.Location = new System.Drawing.Point(698, 316);
-            this.Searchbutton.Name = "Searchbutton";
-            this.Searchbutton.Size = new System.Drawing.Size(90, 37);
-            this.Searchbutton.TabIndex = 63;
-            this.Searchbutton.Text = "Search";
-            this.Searchbutton.UseVisualStyleBackColor = false;
-            // 
-            // Deletebutton
-            // 
-            this.Deletebutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.Deletebutton.Location = new System.Drawing.Point(698, 258);
-            this.Deletebutton.Name = "Deletebutton";
-            this.Deletebutton.Size = new System.Drawing.Size(90, 37);
-            this.Deletebutton.TabIndex = 62;
-            this.Deletebutton.Text = "Delete";
-            this.Deletebutton.UseVisualStyleBackColor = false;
-            // 
-            // Updatebutton
-            // 
-            this.Updatebutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.Updatebutton.Location = new System.Drawing.Point(698, 146);
-            this.Updatebutton.Name = "Updatebutton";
-            this.Updatebutton.Size = new System.Drawing.Size(90, 37);
-            this.Updatebutton.TabIndex = 61;
-            this.Updatebutton.Text = "Update";
-            this.Updatebutton.UseVisualStyleBackColor = false;
-            // 
-            // Savebutton
-            // 
-            this.Savebutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.Savebutton.Location = new System.Drawing.Point(698, 91);
-            this.Savebutton.Name = "Savebutton";
-            this.Savebutton.Size = new System.Drawing.Size(90, 37);
-            this.Savebutton.TabIndex = 60;
-            this.Savebutton.Text = "Save";
-            this.Savebutton.UseVisualStyleBackColor = false;
-            // 
-            // Displaybutton
-            // 
-            this.Displaybutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.Displaybutton.Location = new System.Drawing.Point(698, 204);
-            this.Displaybutton.Name = "Displaybutton";
-            this.Displaybutton.Size = new System.Drawing.Size(90, 37);
-            this.Displaybutton.TabIndex = 59;
-            this.Displaybutton.Text = "Display";
-            this.Displaybutton.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // AddProject
             // 

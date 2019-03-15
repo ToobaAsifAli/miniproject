@@ -24,14 +24,14 @@ namespace miniproject
 
         private void AddStudentlabel_Click(object sender, EventArgs e)
         {
-            student f1 = new student();
+            AddStudent f1 = new AddStudent();
             this.Hide();
             f1.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Evaluation f2 = new Evaluation();
+            EvaluationManagement f2 = new EvaluationManagement();
             this.Hide();
             f2.Show();
 
