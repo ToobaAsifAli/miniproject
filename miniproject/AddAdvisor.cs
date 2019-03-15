@@ -8,10 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+
+
 
 namespace miniproject
 {
-    public partial class AddAdvisor : Form
+    public partial class AddAdvisor : MaterialSkin.Controls.MaterialForm
     {
 
 
@@ -92,6 +95,24 @@ namespace miniproject
 
         private void Savebutton_Click(object sender, EventArgs e)
         {
+
+
+            if (textBox1.Text.Length == 0)
+            {
+                MessageBox.Show("please fill the above boxes ");
+            }
+            else
+            {
+                //   DegreecomboBox.Items.Add(NameBox.Text);
+
+                //dataGridViewManage.Rows[0].Cells[0].Value = st.Courses[i].semester;
+
+            }
+
+
+
+
+
             con.Open();
 
 
@@ -142,10 +163,7 @@ namespace miniproject
             {
                 MessageBox.Show("Advisor has been assigned to you");
             }
-            else
-            {
-                MessageBox.Show("Advisor is not added", "Again Add the Advisor", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+           
             con.Close();
             textBox1.Text = "";
             textBox2.Text = "";
@@ -240,16 +258,16 @@ namespace miniproject
         private void Deletebutton_Click(object sender, EventArgs e)
         {
             con.Open();
-            string ID = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-            string delete = "DELETE FROM Advisor WHERE Id = '" + int.Parse(ID) + "'";
+            string pid = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+            string delete = "DELETE FROM Advisor WHERE Id = '" + int.Parse(pid) + "'";
             SqlCommand cmd = new SqlCommand(delete, con);
-            if (MessageBox.Show("Do You want to delete it", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Do you really want to remove this advisor", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 cmd.ExecuteNonQuery();
-                cmd.CommandText = string.Format("DELETE from Person where  Id ='" + int.Parse(ID) + "'");
+                cmd.CommandText = string.Format("DELETE from Person where  Id ='" + int.Parse(pid) + "'");
                 cmd.ExecuteNonQuery();
                 dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
-                MessageBox.Show("DATA IS DELETED");
+                MessageBox.Show("Records are deleted successfully");
             }
             else
             {
@@ -266,52 +284,124 @@ namespace miniproject
             comboBox1.Text = "";
             comboBox2.Text = "";
             disp_data();
+
+
+                     //      con.Open();
+            //      SqlCommand cmd = con.CreateCommand();
+            //      cmd.CommandType = CommandType.Text;
+            //      // cmd.CommandText = "delete from Person where values('" + textBox1.Text + "','" + textBox2.Text + "','" + textBox3.Text + "','" + textBox4.Text + "','" + textBox5.Text + "','" + textBox6.Text + "')";
+            //    //  cmd.CommandText = "update Person set name ='" + textBox2.Text + "','" + textBox3.Text + "','" + textBox4.Text + "','" + textBox5.Text + "','" + textBox6.Text +"' where FirstName = '"+textBox1.Text+"'";
+
+            ////      cmd.CommandText = "update Person set LastName ='" + textBox2.Text + "' where FirstName = '" + textBox1.Text + "'";
+            ////      cmd.CommandText = "update Person set Contact ='" + textBox3.Text + "' where FirstName = '" + textBox1.Text + "'";
+            ////      cmd.CommandText = "update Person set Email ='" + textBox4.Text + "' where FirstName = '" + textBox1.Text + "'";
+            ////      cmd.CommandText = "update Person set DateOfBirth ='" + textBox5.Text + "' where FirstName = '" + textBox1.Text + "'";
+            //////      cmd.CommandText = "update Student set RegrationNo ='" + textBox7.Text + "' where Person.FirstName = '" + textBox1.Text + "'";
+            //////      cmd.CommandText = "update Person set Gender ='" + comboBox1.Text + "' where FirstName = '" + textBox1.Text + "'";
+
+
+
+
+
+
+
+
+            //      // cmd.CommandText = "update Person set LastName ='" + textBox2.Text + "'update Person set Gender = '" + textBox6.Text + "'where FirstName = '" + textBox1.Text + "'";
+
+
+            //      cmd.ExecuteNonQuery();
+            //      con.Close();
+
+            //      disp_data();
+
+
+            //      //dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
+            //      MessageBox.Show("Record updated successfully");
+
         }
 
         private void Updatebutton_Click(object sender, EventArgs e)
         {
+            //      con.Open();
+            //      SqlCommand cmd = con.CreateCommand();
+            //      cmd.CommandType = CommandType.Text;
+            //      // cmd.CommandText = "delete from Person where values('" + textBox1.Text + "','" + textBox2.Text + "','" + textBox3.Text + "','" + textBox4.Text + "','" + textBox5.Text + "','" + textBox6.Text + "')";
+            //    //  cmd.CommandText = "update Person set name ='" + textBox2.Text + "','" + textBox3.Text + "','" + textBox4.Text + "','" + textBox5.Text + "','" + textBox6.Text +"' where FirstName = '"+textBox1.Text+"'";
+
+            ////      cmd.CommandText = "update Person set LastName ='" + textBox2.Text + "' where FirstName = '" + textBox1.Text + "'";
+            ////      cmd.CommandText = "update Person set Contact ='" + textBox3.Text + "' where FirstName = '" + textBox1.Text + "'";
+            ////      cmd.CommandText = "update Person set Email ='" + textBox4.Text + "' where FirstName = '" + textBox1.Text + "'";
+            ////      cmd.CommandText = "update Person set DateOfBirth ='" + textBox5.Text + "' where FirstName = '" + textBox1.Text + "'";
+            //////      cmd.CommandText = "update Student set RegrationNo ='" + textBox7.Text + "' where Person.FirstName = '" + textBox1.Text + "'";
+            //////      cmd.CommandText = "update Person set Gender ='" + comboBox1.Text + "' where FirstName = '" + textBox1.Text + "'";
+
+
+
+
+
+
+
+
+            //      // cmd.CommandText = "update Person set LastName ='" + textBox2.Text + "'update Person set Gender = '" + textBox6.Text + "'where FirstName = '" + textBox1.Text + "'";
+
+
+            //      cmd.ExecuteNonQuery();
+            //      con.Close();
+
+            //      disp_data();
+
+
+            //      //dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
+            //      MessageBox.Show("Record updated successfully");
+
+
+
+
+
+
+
             if (con.State == ConnectionState.Closed)
             {
                 con.Open();
             }
 
-            string genderValue = "select Id FROM Lookup WHERE Category = 'GENDER' AND value ='" + comboBox1.Text.ToString() + "'";
-            SqlCommand genderInt = new SqlCommand(genderValue, con);
-            int value = 0;
-            SqlDataReader reader = genderInt.ExecuteReader();
+            string gdv = "select Id FROM Lookup WHERE Category = 'GENDER' AND value ='" + comboBox1.Text.ToString() + "'";
+            SqlCommand genderInt = new SqlCommand(gdv, con);
+            int s = 0;
+            SqlDataReader reader3 = genderInt.ExecuteReader();
             // genderInt.ExecuteNonQuery();
-            while (reader.Read())
+            while (reader3.Read())
             {
-                value = int.Parse(reader[0].ToString());
+                s = int.Parse(reader3[0].ToString());
             }
             //FirstName ='" + textBox2.Text + "' ,
-            string query = string.Format("SELECT Id from Person Where Email = '" + textBox4.Text + "'");
-            SqlCommand cmd = new SqlCommand(query, con);
-            var val = cmd.ExecuteScalar().ToString();
-            int value1 = int.Parse(val);
+            string que1 = string.Format("SELECT Id from Person Where Email = '" + textBox4.Text + "'");
+            SqlCommand cmd = new SqlCommand(que1, con);
+            var aa = cmd.ExecuteScalar().ToString();
+            int s1 = int.Parse(aa);
             // int id =int.Parse( cmd.ExecuteScalar());
-            string per = "Update Person set FirstName ='" + textBox1.Text + "' ,  LastName= '" + textBox2.Text + "' , Contact = '" + textBox3.Text + "', Email = '" + textBox4.Text + "', DateOfBirth ='" + DateTime.Parse(textBox5.Text) + "', Gender = '" + value + "' WHERE Id= '" + value1 + "'";
-            SqlCommand persi = new SqlCommand(per, con);
-            int i = persi.ExecuteNonQuery();
-            string congo1 = comboBox2.Text.ToString();
-            string desg = "select Id FROM Lookup WHERE Category = 'DESIGNATION' AND Value ='" + congo1 + "'";
-            SqlCommand d = new SqlCommand(desg, con);
-            int value5 = 0;
-            SqlDataReader reader1 = d.ExecuteReader();
+            string ps = "Update Person set FirstName ='" + textBox1.Text + "' ,  LastName= '" + textBox2.Text + "' , Contact = '" + textBox3.Text + "', Email = '" + textBox4.Text + "', DateOfBirth ='" + DateTime.Parse(textBox5.Text) + "', Gender = '" + s + "' WHERE Id= '" + s1 + "'";
+            SqlCommand pesi = new SqlCommand(ps, con);
+            int a = pesi.ExecuteNonQuery();
+            string gender = comboBox2.Text.ToString();
+            string desi = "select Id FROM Lookup WHERE Category = 'DESIGNATION' AND Value ='" + gender + "'";
+            SqlCommand d = new SqlCommand(desi, con);
+            int s2 = 0;
+            SqlDataReader reader4 = d.ExecuteReader();
             // genderInt.ExecuteNonQuery();
-            while (reader1.Read())
+            while (reader4.Read())
             {
-                value5 = int.Parse(reader1[0].ToString());
+                s2 = int.Parse(reader4[0].ToString());
             }
-            string st = "Update Advisor set Designation = '" + value5 + "',Salary = '" + int.Parse(textBox7.Text) + "' where Id ='" + value1 + "'";
+            string st = "Update Advisor set Designation = '" + s2 + "',Salary = '" + int.Parse(textBox7.Text) + "' where Id ='" + s1 + "'";
             SqlCommand persi1 = new SqlCommand(st, con);
             //int j = persi1.ExecuteNonQuery();
 
 
-            if (MessageBox.Show("Do You want to Update it", "Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Do you really want to Update this record", "Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
 
-                MessageBox.Show("DATA IS Updated");
+                MessageBox.Show("Record has been updated successfully");
             }
             else
             {
@@ -327,6 +417,27 @@ namespace miniproject
             comboBox1.Text = "";
             comboBox2.Text = "";
             disp_data();
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+            //if (string.IsNullOrWhiteSpace(textBox1.Text))
+            //{
+            //    e.Cancel = true;
+            //    textBox1.Focus();
+            //    errorProvider1.SetError(textBox1, "Name should not be left blank!");
+            //}
+            //else
+            //{
+            //    e.Cancel = false;
+            //    errorProvider1.SetError(textBox1, "");
+            //}
+        }
+
+       
+        private void AddAdvisor_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

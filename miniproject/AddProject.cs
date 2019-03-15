@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace miniproject
 {
-    public partial class AddProject : Form
+    public partial class AddProject : MaterialSkin.Controls.MaterialForm
     {
         SqlConnection con = new SqlConnection("Data Source=DESKTOP-R6RA1PL\\TOOBAASIF;Initial Catalog=ProjectA;Persist Security Info=True;User ID=sa;Password=1212");
 
@@ -111,6 +111,11 @@ namespace miniproject
         private void Display_Click(object sender, EventArgs e)
         {
             disp_data();
+        }
+
+        private void AddProject_Load(object sender, EventArgs e)
+        {
+
         }
     }
     

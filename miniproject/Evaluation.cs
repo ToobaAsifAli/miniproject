@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace miniproject
 {
-    public partial class Evaluation : Form
+    public partial class Evaluation : MaterialSkin.Controls.MaterialForm
     {
         SqlConnection con = new SqlConnection("Data Source=DESKTOP-R6RA1PL\\TOOBAASIF;Initial Catalog=ProjectA;Persist Security Info=True;User ID=sa;Password=1212");
 
@@ -112,6 +112,11 @@ namespace miniproject
 
             //dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
             MessageBox.Show("Record updated successfully");
+        }
+
+        private void Evaluation_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

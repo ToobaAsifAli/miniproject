@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace miniproject
 {
-    public partial class AdvisorManagement : Form
+    public partial class AdvisorManagement : MaterialSkin.Controls.MaterialForm
     {
         SqlConnection con = new SqlConnection("Data Source=DESKTOP-R6RA1PL\\TOOBAASIF;Initial Catalog=ProjectA;Persist Security Info=True;User ID=sa;Password=1212");
 
@@ -25,6 +25,11 @@ namespace miniproject
             AddAdvisor f2 = new AddAdvisor();
             this.Hide();
             f2.Show();
+        }
+
+        private void AdvisorManagement_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

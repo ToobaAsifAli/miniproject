@@ -28,16 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddProject));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Display = new System.Windows.Forms.Button();
-            this.Searchlabel = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.Titlelabel = new System.Windows.Forms.Label();
             this.Descriptionlabel = new System.Windows.Forms.Label();
-            this.Deletelabel = new System.Windows.Forms.Button();
-            this.Updatelabel = new System.Windows.Forms.Button();
-            this.Insertlabel = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.Searchbutton = new System.Windows.Forms.Button();
+            this.Deletebutton = new System.Windows.Forms.Button();
+            this.Updatebutton = new System.Windows.Forms.Button();
+            this.Savebutton = new System.Windows.Forms.Button();
+            this.Displaybutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,26 +51,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(547, 150);
             this.dataGridView1.TabIndex = 23;
-            // 
-            // Display
-            // 
-            this.Display.Location = new System.Drawing.Point(675, 300);
-            this.Display.Name = "Display";
-            this.Display.Size = new System.Drawing.Size(75, 23);
-            this.Display.TabIndex = 22;
-            this.Display.Text = "Display";
-            this.Display.UseVisualStyleBackColor = true;
-            this.Display.Click += new System.EventHandler(this.Display_Click);
-            // 
-            // Searchlabel
-            // 
-            this.Searchlabel.Location = new System.Drawing.Point(675, 246);
-            this.Searchlabel.Name = "Searchlabel";
-            this.Searchlabel.Size = new System.Drawing.Size(75, 23);
-            this.Searchlabel.TabIndex = 21;
-            this.Searchlabel.Text = "Search";
-            this.Searchlabel.UseVisualStyleBackColor = true;
-            this.Searchlabel.Click += new System.EventHandler(this.Searchlabel_Click);
             // 
             // textBox2
             // 
@@ -101,53 +84,97 @@
             this.Descriptionlabel.TabIndex = 15;
             this.Descriptionlabel.Text = "Description";
             // 
-            // Deletelabel
+            // button2
             // 
-            this.Deletelabel.Location = new System.Drawing.Point(675, 196);
-            this.Deletelabel.Name = "Deletelabel";
-            this.Deletelabel.Size = new System.Drawing.Size(75, 23);
-            this.Deletelabel.TabIndex = 14;
-            this.Deletelabel.Text = "Delete";
-            this.Deletelabel.UseVisualStyleBackColor = true;
-            this.Deletelabel.Click += new System.EventHandler(this.Deletelabel_Click);
+            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Location = new System.Drawing.Point(39, 1);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(36, 20);
+            this.button2.TabIndex = 55;
+            this.button2.UseVisualStyleBackColor = true;
             // 
-            // Updatelabel
+            // button1
             // 
-            this.Updatelabel.Location = new System.Drawing.Point(675, 136);
-            this.Updatelabel.Name = "Updatelabel";
-            this.Updatelabel.Size = new System.Drawing.Size(75, 23);
-            this.Updatelabel.TabIndex = 13;
-            this.Updatelabel.Text = "Update";
-            this.Updatelabel.UseVisualStyleBackColor = true;
-            this.Updatelabel.Click += new System.EventHandler(this.Updatelabel_Click);
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(1, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(36, 21);
+            this.button1.TabIndex = 54;
+            this.button1.Text = " ";
+            this.button1.UseVisualStyleBackColor = true;
             // 
-            // Insertlabel
+            // Searchbutton
             // 
-            this.Insertlabel.Location = new System.Drawing.Point(675, 81);
-            this.Insertlabel.Name = "Insertlabel";
-            this.Insertlabel.Size = new System.Drawing.Size(75, 23);
-            this.Insertlabel.TabIndex = 12;
-            this.Insertlabel.Text = "Insert";
-            this.Insertlabel.UseVisualStyleBackColor = true;
-            this.Insertlabel.Click += new System.EventHandler(this.Insertlabel_Click);
+            this.Searchbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.Searchbutton.Location = new System.Drawing.Point(698, 316);
+            this.Searchbutton.Name = "Searchbutton";
+            this.Searchbutton.Size = new System.Drawing.Size(90, 37);
+            this.Searchbutton.TabIndex = 63;
+            this.Searchbutton.Text = "Search";
+            this.Searchbutton.UseVisualStyleBackColor = false;
+            // 
+            // Deletebutton
+            // 
+            this.Deletebutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.Deletebutton.Location = new System.Drawing.Point(698, 258);
+            this.Deletebutton.Name = "Deletebutton";
+            this.Deletebutton.Size = new System.Drawing.Size(90, 37);
+            this.Deletebutton.TabIndex = 62;
+            this.Deletebutton.Text = "Delete";
+            this.Deletebutton.UseVisualStyleBackColor = false;
+            // 
+            // Updatebutton
+            // 
+            this.Updatebutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.Updatebutton.Location = new System.Drawing.Point(698, 146);
+            this.Updatebutton.Name = "Updatebutton";
+            this.Updatebutton.Size = new System.Drawing.Size(90, 37);
+            this.Updatebutton.TabIndex = 61;
+            this.Updatebutton.Text = "Update";
+            this.Updatebutton.UseVisualStyleBackColor = false;
+            // 
+            // Savebutton
+            // 
+            this.Savebutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.Savebutton.Location = new System.Drawing.Point(698, 91);
+            this.Savebutton.Name = "Savebutton";
+            this.Savebutton.Size = new System.Drawing.Size(90, 37);
+            this.Savebutton.TabIndex = 60;
+            this.Savebutton.Text = "Save";
+            this.Savebutton.UseVisualStyleBackColor = false;
+            // 
+            // Displaybutton
+            // 
+            this.Displaybutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.Displaybutton.Location = new System.Drawing.Point(698, 204);
+            this.Displaybutton.Name = "Displaybutton";
+            this.Displaybutton.Size = new System.Drawing.Size(90, 37);
+            this.Displaybutton.TabIndex = 59;
+            this.Displaybutton.Text = "Display";
+            this.Displaybutton.UseVisualStyleBackColor = false;
             // 
             // AddProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Searchbutton);
+            this.Controls.Add(this.Deletebutton);
+            this.Controls.Add(this.Updatebutton);
+            this.Controls.Add(this.Savebutton);
+            this.Controls.Add(this.Displaybutton);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.Display);
-            this.Controls.Add(this.Searchlabel);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.Titlelabel);
             this.Controls.Add(this.Descriptionlabel);
-            this.Controls.Add(this.Deletelabel);
-            this.Controls.Add(this.Updatelabel);
-            this.Controls.Add(this.Insertlabel);
             this.Name = "AddProject";
             this.Text = "AddProject";
+            this.Load += new System.EventHandler(this.AddProject_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -157,14 +184,16 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button Display;
-        private System.Windows.Forms.Button Searchlabel;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label Titlelabel;
         private System.Windows.Forms.Label Descriptionlabel;
-        private System.Windows.Forms.Button Deletelabel;
-        private System.Windows.Forms.Button Updatelabel;
-        private System.Windows.Forms.Button Insertlabel;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Searchbutton;
+        private System.Windows.Forms.Button Deletebutton;
+        private System.Windows.Forms.Button Updatebutton;
+        private System.Windows.Forms.Button Savebutton;
+        private System.Windows.Forms.Button Displaybutton;
     }
 }

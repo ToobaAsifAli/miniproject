@@ -27,3 +27,4 @@ C:\Users\ok\Documents\GitHub\miniproject\miniproject\obj\Debug\miniproject.AddAd
 C:\Users\ok\Documents\GitHub\miniproject\miniproject\obj\Debug\miniproject.AdvisorManagement.resources
 C:\Users\ok\Documents\GitHub\miniproject\miniproject\obj\Debug\miniproject.AddProject.resources
 C:\Users\ok\Documents\GitHub\miniproject\miniproject\obj\Debug\miniproject.ProjectMagement.resources
+C:\Users\ok\Documents\GitHub\miniproject\miniproject\obj\Debug\miniproject.AddStudent.resources

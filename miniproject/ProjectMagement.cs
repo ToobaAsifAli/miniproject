@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace miniproject
 {
-    public partial class ProjectMagement : Form
+    public partial class ProjectMagement : MaterialSkin.Controls.MaterialForm
     {
         public ProjectMagement()
         {
@@ -22,6 +22,11 @@ namespace miniproject
             AddProject f3 = new AddProject();
             this.Hide();
             f3.Show();
+        }
+
+        private void ProjectMagement_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace miniproject
 {
-    public partial class FinalYearProjectManagement : Form
+    public partial class EvaluationManagement : Form
     {
-        public FinalYearProjectManagement()
+        public EvaluationManagement()
         {
             InitializeComponent();
         }
