@@ -302,13 +302,15 @@ namespace miniproject
                 s = int.Parse(reader3[0].ToString());
             }
             //FirstName ='" + textBox2.Text + "' ,
-            con.Close();
-            con.Open();
+            reader3.Close();
             string que1 = string.Format("SELECT Id from Person Where Email = '" + textBox4.Text + "'");
             SqlCommand cmd = new SqlCommand(que1, con);
             var aa = cmd.ExecuteScalar().ToString();
             int s1 = int.Parse(aa);
             // int id =int.Parse( cmd.ExecuteScalar());
+
+           cmd.ExecuteNonQuery();
+
             string ps = "Update Person set FirstName ='" + textBox1.Text + "' ,  LastName= '" + textBox2.Text + "' , Contact = '" + textBox3.Text + "', Email = '" + textBox4.Text + "', DateOfBirth ='" + DateTime.Parse(textBox5.Text) + "', Gender = '" + s + "' WHERE Id= '" + s1 + "'";
             SqlCommand pesi = new SqlCommand(ps, con);
             int a = pesi.ExecuteNonQuery();
@@ -323,8 +325,9 @@ namespace miniproject
                 s2 = int.Parse(reader4[0].ToString());
             }
             string st = "Update Advisor set Designation = '" + s2 + "',Salary = '" + int.Parse(textBox7.Text) + "' where Id ='" + s1 + "'";
+            reader4.Close();
             SqlCommand persi1 = new SqlCommand(st, con);
-            //int j = persi1.ExecuteNonQuery();
+            persi1.ExecuteNonQuery();
 
 
             if (MessageBox.Show("Do you really want to Update this record", "Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -346,6 +349,10 @@ namespace miniproject
             comboBox1.Text = "";
             comboBox2.Text = "";
             disp_data();
+
+
+
+
         }
 
         private void Displaybutton_Click(object sender, EventArgs e)
