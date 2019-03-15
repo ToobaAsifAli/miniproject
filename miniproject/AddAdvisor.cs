@@ -27,7 +27,7 @@ namespace miniproject
 
         private void Savebutton_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text.Length == 0)
+            if (textBox1.Text.Length == 0 )
             {
                 MessageBox.Show("please fill the above boxes ");
             }
@@ -54,7 +54,7 @@ namespace miniproject
             SqlCommand gdInt = new SqlCommand(gdv, con);
             int s = 0;
             SqlDataReader reader = gdInt.ExecuteReader();
-            // genderInt.ExecuteNonQuery();
+         
             while (reader.Read())
             {
                 s = int.Parse(reader[0].ToString());
@@ -62,7 +62,7 @@ namespace miniproject
             con.Close();
             con.Open();
 
-            //int gender = Convert.ToInt32(genderInt.ExecuteScalar ());
+          
 
             //string per = "INSERT into Person(FirstName , LastName , Contact , Email , DateOfBirth , Gender) values ('" + textBox1.Text + "' , '" + textBox2.Text + "' , '" + textBox3.Text + "' , '" + textBox4.Text + "' , '" + DateTime.Parse(textBox5.Text) + "' , '" + s + "')";
             string per = "INSERT into Person(FirstName , LastName , Contact , Email , DateOfBirth , Gender) values ('" + textBox1.Text + "' , '" + textBox2.Text + "' , '" + textBox3.Text + "' , '" + textBox4.Text + "' , '" + textBox5.Text + "' , '" + s + "')";
@@ -79,7 +79,7 @@ namespace miniproject
             SqlCommand d = new SqlCommand(desi, con);
             int s2 = 0;
             SqlDataReader reader1 = d.ExecuteReader();
-            // genderInt.ExecuteNonQuery();
+      
             while (reader1.Read())
             {
                 s2 = int.Parse(reader1[0].ToString());
@@ -108,64 +108,7 @@ namespace miniproject
 
 
 
-            //    con.Open();
-
-
-
-
-            //    string congo = comboBox1.SelectedItem.ToString();
-            //    string desi = comboBox2.SelectedItem.ToString();
-
-            //    string genderValue = "select Id FROM Lookup WHERE Category = 'Gender' AND value ='" + congo + "'";
-            //    string desiValue = "select Designation FROM Lookup WHERE Category = 'Designation' AND value ='" + desi + "'";
-            //    SqlCommand genderInt = new SqlCommand(genderValue, con);
-            //    int value = 0;
-            //    SqlDataReader reader = genderInt.ExecuteReader();
-            //    // genderInt.ExecuteNonQuery();
-            //    while (reader.Read())
-            //    {
-            //        value = int.Parse(reader[0].ToString());
-            //    }
-
-            //     SqlCommand gInt = new SqlCommand(desiValue, con);
-            //    int value = 0;
-            //    SqlDataReader reader1 = genderInt.ExecuteReader();
-            //    // genderInt.ExecuteNonQuery();
-            //    while (reader1.Read())
-            //    {
-            //        value = int.Parse(reader[0].ToString());
-            //    }
-
-            //    //int gender = Convert.ToInt32(genderInt.ExecuteScalar ());
-            //    con.Close();
-            //    con.Open();
-
-            //    string per = "INSERT into Person(FirstName , LastName , Contact , Email , DateOfBirth , Gender) values ('" + textBox1.Text + "' , '" + textBox2.Text + "' , '" + textBox3.Text + "' , '" + textBox4.Text + "' , '" + textBox5.Text + "' , '" + value + "')";
-
-            //    SqlCommand persi = new SqlCommand(per, con);
-            //    int i = persi.ExecuteNonQuery();
-
-            //    int value1 = 0;
-            //    //----------------------------------------------------------------------------------------
-            //    string query = "Select Id from Person where (Id = SCOPE_IDENTITY())";
-            //    SqlCommand cmd = new SqlCommand(query, con);
-            //    var val = cmd.ExecuteScalar().ToString();
-            //    value1 = int.Parse(val);
-            //    //---------------------------------------------------------------------------------------------
-            //    string q = "insert into Student values('" + value1 + "','" + textBox7.Text.ToString() + "')";
-            //    SqlCommand cmd1 = new SqlCommand(q, con);
-            //    int j = cmd1.ExecuteNonQuery();
-            //    //  string S_ID = string.Format("Select Id FROM Person where Email ='{0}'", email);
-            //    // SqlCommand StuID = new SqlCommand(S_ID, conn);
-            //    // int Id = Convert.ToInt32(StuID.ExecuteScalar());
-            //    // string st = "Insert into Student values( '" + Id + "' ,'" + textBox1.Text + "')";
-            //    // SqlCommand std = new SqlCommand(st, conn);
-            //    // int ii = std.ExecuteNonQuery();
-
-
-            //    con.Close();
-            //    disp_data();
-            //    MessageBox.Show("Data Inserted");
+          
         }
 
         public void disp_data()
@@ -185,28 +128,20 @@ namespace miniproject
         private void Deletebutton_Click(object sender, EventArgs e)
         {
             con.Open();
-            string pid = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-            string delete = "DELETE FROM Advisor WHERE Id = '" + int.Parse(pid) + "'";
-            SqlCommand cmd = new SqlCommand(delete, con);
-            if (MessageBox.Show("Do you really want to remove this advisor", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                cmd.ExecuteNonQuery();
-                cmd.CommandText = string.Format("DELETE from Person where  Id ='" + int.Parse(pid) + "'");
-                cmd.ExecuteNonQuery();
-                dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
-                MessageBox.Show("Records are deleted successfully");
-            }
-            
+            string display = String.Format("DELETE FROM Person WHERE Email = '{0}'", textBox4.Text);
+            SqlCommand cmd = new SqlCommand(display, con);
+            cmd.ExecuteNonQuery();
+
+            //cmd.CommandText = string.Format("DELETE FROM Person WHERE Email = '{0}'", email);
+            //cmd.ExecuteNonQuery();
             con.Close();
-            textBox1.Text = "";
-            textBox2.Text = "";
-            textBox3.Text = "";
-            textBox4.Text = "";
-            textBox5.Text = "";
-            textBox7.Text = "";
-            comboBox1.Text = "";
-            comboBox2.Text = "";
             disp_data();
+            if (MessageBox.Show("Do you really want to delete this record", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+
+                MessageBox.Show("Record has been deleted successfully");
+            }
+
 
 
             //      con.Open();
@@ -335,10 +270,7 @@ namespace miniproject
 
                 MessageBox.Show("Record has been updated successfully");
             }
-            else
-            {
-                MessageBox.Show("Row not Updated", "Update row", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+           
             con.Close();
             textBox1.Text = "";
             textBox2.Text = "";

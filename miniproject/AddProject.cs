@@ -146,7 +146,11 @@ namespace miniproject
 
             //   textBox7.Text = "";
             //disp_data();
-            MessageBox.Show("Record inserted successfully");
+            if (MessageBox.Show("Do you really want to add this Project", "Insert", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+
+                MessageBox.Show("Record has been inserted successfully");
+            }
         }
 
         private void Updatebutton_Click(object sender, EventArgs e)
@@ -167,7 +171,11 @@ namespace miniproject
 
 
             //dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
-            MessageBox.Show("Record updated successfully");
+            if (MessageBox.Show("Do you really want to Update this record", "Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+
+                MessageBox.Show("Record has been updated successfully");
+            }
         }
 
         private void Displaybutton_Click(object sender, EventArgs e)
@@ -188,9 +196,14 @@ namespace miniproject
 
             disp_data();
 
+            if (MessageBox.Show("Do you really want to delete this record", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+
+                MessageBox.Show("Record has been deleted successfully");
+            }
 
             //dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
-            MessageBox.Show("Record deleted successfully");
+
         }
 
         private void Searchbutton_Click(object sender, EventArgs e)
