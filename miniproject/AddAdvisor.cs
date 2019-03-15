@@ -196,11 +196,7 @@ namespace miniproject
                 dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
                 MessageBox.Show("Records are deleted successfully");
             }
-            else
-            {
-                MessageBox.Show("Row not deleted", "Remove row", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-
+            
             con.Close();
             textBox1.Text = "";
             textBox2.Text = "";
@@ -313,7 +309,11 @@ namespace miniproject
 
             string ps = "Update Person set FirstName ='" + textBox1.Text + "' ,  LastName= '" + textBox2.Text + "' , Contact = '" + textBox3.Text + "', Email = '" + textBox4.Text + "', DateOfBirth ='" + DateTime.Parse(textBox5.Text) + "', Gender = '" + s + "' WHERE Id= '" + s1 + "'";
             SqlCommand pesi = new SqlCommand(ps, con);
-            int a = pesi.ExecuteNonQuery();
+            int a  = pesi.ExecuteNonQuery();
+
+
+           // MessageBox.Show("In Middle"+ a.ToString());
+
             string gender = comboBox2.Text.ToString();
             string desi = "select Id FROM Lookup WHERE Category = 'DESIGNATION' AND Value ='" + gender + "'";
             SqlCommand d = new SqlCommand(desi, con);

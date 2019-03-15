@@ -137,10 +137,10 @@ namespace miniproject
             con.Open();
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "insert into Project values('" + textBox1.Text + "','" + textBox2.Text + "')";// + "insert into Student values('" + textBox7.Text + "')";
+            cmd.CommandText = "insert into Project values('" + textBox2.Text + "','" + richTextBox1.Text + "')";// + "insert into Student values('" + textBox7.Text + "')";
             cmd.ExecuteNonQuery();
             con.Close();
-            textBox1.Text = "";
+            richTextBox1.Text = "";
             textBox2.Text = "";
 
 
@@ -155,8 +155,8 @@ namespace miniproject
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
 
-
-            cmd.CommandText = "update Project set TotalMarks ='" + textBox2.Text + "' where Description = '" + textBox1.Text + "'";
+     
+            cmd.CommandText = "update Project set Description ='" + richTextBox1.Text + "' where Title = '" + textBox2.Text + "'";
             cmd.ExecuteNonQuery();
             //cmd.CommandText = "update Evaluation set TotalWeightage ='" + textBox3.Text + "' where Name = '" + textBox1.Text + "'";
 
@@ -181,7 +181,7 @@ namespace miniproject
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
             // cmd.CommandText = "delete from Person where values('" + textBox1.Text + "','" + textBox2.Text + "','" + textBox3.Text + "','" + textBox4.Text + "','" + textBox5.Text + "','" + textBox6.Text + "')";
-            cmd.CommandText = "delete from Project where description ='" + textBox1.Text + "'";
+            cmd.CommandText = "delete from Project where Title ='" + textBox2.Text + "'";
 
             cmd.ExecuteNonQuery();
             con.Close();
@@ -198,8 +198,8 @@ namespace miniproject
             con.Open();
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select * from Project where Description ='" + textBox1.Text + "'";
-            textBox1.Text = "";
+            cmd.CommandText = "select * from Project where Title ='" + textBox2.Text + "'";
+            textBox2.Text = "";
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
