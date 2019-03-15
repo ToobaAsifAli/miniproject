@@ -218,6 +218,7 @@
             this.Deletebutton.TabIndex = 50;
             this.Deletebutton.Text = "Delete";
             this.Deletebutton.UseVisualStyleBackColor = true;
+            this.Deletebutton.Click += new System.EventHandler(this.Deletebutton_Click);
             // 
             // Updatebutton
             // 
@@ -227,6 +228,7 @@
             this.Updatebutton.TabIndex = 49;
             this.Updatebutton.Text = "Update";
             this.Updatebutton.UseVisualStyleBackColor = true;
+            this.Updatebutton.Click += new System.EventHandler(this.Updatebutton_Click);
             // 
             // Savebutton
             // 
@@ -246,6 +248,7 @@
             this.Displaybutton.TabIndex = 47;
             this.Displaybutton.Text = "Display";
             this.Displaybutton.UseVisualStyleBackColor = true;
+            this.Displaybutton.Click += new System.EventHandler(this.Displaybutton_Click_1);
             // 
             // AddAdvisor
             // 
