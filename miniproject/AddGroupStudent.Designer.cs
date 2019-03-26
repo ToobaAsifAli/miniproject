@@ -38,6 +38,8 @@
             this.Updatebutton = new System.Windows.Forms.Button();
             this.Savebutton = new System.Windows.Forms.Button();
             this.Displaybutton = new System.Windows.Forms.Button();
+            this.CreatedOnlabel = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,9 +79,9 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(111, 190);
+            this.dataGridView1.Location = new System.Drawing.Point(43, 245);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(423, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(616, 150);
             this.dataGridView1.TabIndex = 4;
             // 
             // Searchbutton
@@ -134,11 +136,29 @@
             this.Displaybutton.UseVisualStyleBackColor = false;
             this.Displaybutton.Click += new System.EventHandler(this.Displaybutton_Click);
             // 
+            // CreatedOnlabel
+            // 
+            this.CreatedOnlabel.AutoSize = true;
+            this.CreatedOnlabel.Location = new System.Drawing.Point(111, 150);
+            this.CreatedOnlabel.Name = "CreatedOnlabel";
+            this.CreatedOnlabel.Size = new System.Drawing.Size(61, 13);
+            this.CreatedOnlabel.TabIndex = 27;
+            this.CreatedOnlabel.Text = "Created On";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(251, 142);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 20);
+            this.textBox3.TabIndex = 28;
+            // 
             // AddGroupStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.CreatedOnlabel);
             this.Controls.Add(this.Searchbutton);
             this.Controls.Add(this.Deletebutton);
             this.Controls.Add(this.Updatebutton);
@@ -170,5 +190,7 @@
         private System.Windows.Forms.Button Updatebutton;
         private System.Windows.Forms.Button Savebutton;
         private System.Windows.Forms.Button Displaybutton;
+        private System.Windows.Forms.Label CreatedOnlabel;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }

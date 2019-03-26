@@ -35,7 +35,9 @@ namespace miniproject
             con.Open();
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select Advisor.Id,Project.Id,,ProjectAdvisor.AdvisorRole,ProjectAdvisor.AssignmentDate From (ProjectAdvisor JOIN Advisor ON ProjectAdvisor.AdvisorId = Advisor.Id )JOIN Project ON ProjectAdvisor.ProjectId = Project.Id";
+            //cmd.CommandText = "select Advisor.Id,Project.Id,,ProjectAdvisor.AdvisorRole,ProjectAdvisor.AssignmentDate From (ProjectAdvisor JOIN Advisor ON ProjectAdvisor.AdvisorId = Advisor.Id )JOIN Project ON ProjectAdvisor.ProjectId = Project.Id";
+            cmd.CommandText = "SELECT Advisor.Id as [Advisor Id] ,Project.Id as [Project Id], ProjectAdvisor.AdvisorRole, ProjectAdvisor.AssignmentDate FROM (ProjectAdvisor JOIN Advisor ON ProjectAdvisor.AdvisorId = Advisor.Id) JOIN Project ON ProjectAdvisor.ProjectId = Project.Id";
+
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);

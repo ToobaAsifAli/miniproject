@@ -42,7 +42,8 @@ namespace miniproject
             con.Open();
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "SELECT * From GroupStudent";
+            cmd.CommandText = "SELECT [Group].Id as [Group Id],Student.Id as [Student Id],[Group].Created_On, GroupStudent.Status, GroupStudent.AssignmentDate FROM ([Group] JOIN Groupstudent ON [Group].Id = GroupStudent.GroupId) JOIN Student ON GroupStudent.StudentId = student.Id";
+
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
