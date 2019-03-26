@@ -56,6 +56,24 @@
     <Compile Include="AddAdvisor.Designer.cs">
       <DependentUpon>AddAdvisor.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddGroup.Designer.cs">
+      <DependentUpon>AddGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddGroupEvaluation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddGroupEvaluation.Designer.cs">
+      <DependentUpon>AddGroupEvaluation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddGroupStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddGroupStudent.Designer.cs">
+      <DependentUpon>AddGroupStudent.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddProject.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +110,30 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Group.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Group.Designer.cs">
+      <DependentUpon>Group.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GroupEvaluation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GroupEvaluation.Designer.cs">
+      <DependentUpon>GroupEvaluation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GroupProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GroupProject.Designer.cs">
+      <DependentUpon>GroupProject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GroupStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GroupStudent.Designer.cs">
+      <DependentUpon>GroupStudent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="ProjectMagement.cs">
       <SubType>Form</SubType>
@@ -108,6 +150,15 @@
     </Compile>
     <EmbeddedResource Include="AddAdvisor.resx">
       <DependentUpon>AddAdvisor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddGroup.resx">
+      <DependentUpon>AddGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddGroupEvaluation.resx">
+      <DependentUpon>AddGroupEvaluation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddGroupStudent.resx">
+      <DependentUpon>AddGroupStudent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddProject.resx">
       <DependentUpon>AddProject.cs</DependentUpon>
@@ -126,6 +177,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Group.resx">
+      <DependentUpon>Group.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GroupStudent.resx">
+      <DependentUpon>GroupStudent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProjectMagement.resx">
       <DependentUpon>ProjectMagement.cs</DependentUpon>

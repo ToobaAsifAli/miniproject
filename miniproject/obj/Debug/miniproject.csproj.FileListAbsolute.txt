@@ -29,3 +29,8 @@ C:\Users\ok\Documents\GitHub\miniproject\miniproject\obj\Debug\miniproject.AddPr
 C:\Users\ok\Documents\GitHub\miniproject\miniproject\obj\Debug\miniproject.ProjectMagement.resources
 C:\Users\ok\Documents\GitHub\miniproject\miniproject\obj\Debug\miniproject.AddStudent.resources
 C:\Users\ok\Documents\GitHub\miniproject\miniproject\obj\Debug\miniproject.EvaluationManagement.resources
+C:\Users\ok\Documents\GitHub\miniproject\miniproject\obj\Debug\miniproject.AddGroupStudent.resources
+C:\Users\ok\Documents\GitHub\miniproject\miniproject\obj\Debug\miniproject.GroupStudent.resources
+C:\Users\ok\Documents\GitHub\miniproject\miniproject\obj\Debug\miniproject.AddGroup.resources
+C:\Users\ok\Documents\GitHub\miniproject\miniproject\obj\Debug\miniproject.Group.resources
+C:\Users\ok\Documents\GitHub\miniproject\miniproject\obj\Debug\miniproject.AddGroupEvaluation.resources
