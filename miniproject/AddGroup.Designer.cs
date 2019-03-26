@@ -102,6 +102,7 @@
             this.Savebutton.TabIndex = 65;
             this.Savebutton.Text = "Save";
             this.Savebutton.UseVisualStyleBackColor = false;
+            this.Savebutton.Click += new System.EventHandler(this.Savebutton_Click);
             // 
             // Displaybutton
             // 

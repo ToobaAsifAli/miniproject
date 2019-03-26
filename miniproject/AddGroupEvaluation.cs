@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,8 @@ namespace miniproject
 {
     public partial class AddGroupEvaluation : Form
     {
+        SqlConnection con = new SqlConnection("Data Source=DESKTOP-R6RA1PL\\TOOBAASIF;Initial Catalog=ProjectA;Persist Security Info=True;User ID=sa;Password=1212");
+
         public AddGroupEvaluation()
         {
             InitializeComponent();
@@ -34,6 +37,11 @@ namespace miniproject
             da.Fill(dt);
             dataGridView1.DataSource = dt;
             con.Close();
+        }
+
+        private void AddGroupEvaluation_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

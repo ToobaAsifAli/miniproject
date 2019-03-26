@@ -68,6 +68,12 @@
     <Compile Include="AddGroupEvaluation.Designer.cs">
       <DependentUpon>AddGroupEvaluation.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddGroupProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddGroupProject.Designer.cs">
+      <DependentUpon>AddGroupProject.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddGroupStudent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +85,12 @@
     </Compile>
     <Compile Include="AddProject.Designer.cs">
       <DependentUpon>AddProject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddProjectAdvisor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddProjectAdvisor.Designer.cs">
+      <DependentUpon>AddProjectAdvisor.cs</DependentUpon>
     </Compile>
     <Compile Include="AddStudent.cs">
       <SubType>Form</SubType>
@@ -135,6 +147,12 @@
       <DependentUpon>GroupStudent.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="ProjectAdvisor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProjectAdvisor.Designer.cs">
+      <DependentUpon>ProjectAdvisor.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProjectMagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,11 +175,17 @@
     <EmbeddedResource Include="AddGroupEvaluation.resx">
       <DependentUpon>AddGroupEvaluation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddGroupProject.resx">
+      <DependentUpon>AddGroupProject.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddGroupStudent.resx">
       <DependentUpon>AddGroupStudent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddProject.resx">
       <DependentUpon>AddProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddProjectAdvisor.resx">
+      <DependentUpon>AddProjectAdvisor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddStudent.resx">
       <DependentUpon>AddStudent.cs</DependentUpon>

@@ -131,6 +131,7 @@
             this.Controls.Add(this.ObtainMarkslabel);
             this.Name = "AddGroupEvaluation";
             this.Text = "AddGroupEvaluation";
+            this.Load += new System.EventHandler(this.AddGroupEvaluation_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

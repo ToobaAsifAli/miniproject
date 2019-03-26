@@ -34,3 +34,5 @@ C:\Users\ok\Documents\GitHub\miniproject\miniproject\obj\Debug\miniproject.Group
 C:\Users\ok\Documents\GitHub\miniproject\miniproject\obj\Debug\miniproject.AddGroup.resources
 C:\Users\ok\Documents\GitHub\miniproject\miniproject\obj\Debug\miniproject.Group.resources
 C:\Users\ok\Documents\GitHub\miniproject\miniproject\obj\Debug\miniproject.AddGroupEvaluation.resources
+C:\Users\ok\Documents\GitHub\miniproject\miniproject\obj\Debug\miniproject.AddGroupProject.resources
+C:\Users\ok\Documents\GitHub\miniproject\miniproject\obj\Debug\miniproject.AddProjectAdvisor.resources

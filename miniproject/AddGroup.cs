@@ -42,5 +42,10 @@ namespace miniproject
         {
             disp_data();
         }
+
+        private void Savebutton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
