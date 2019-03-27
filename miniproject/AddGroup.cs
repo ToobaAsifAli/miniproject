@@ -59,6 +59,21 @@ namespace miniproject
 
                 MessageBox.Show("Record has been inserted successfully");
             }
+           
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+
+            SqlDataAdapter aa = new SqlDataAdapter("select * from student", con);
+            DataTable dt = new DataTable();
+            aa.Fill(dt);
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                comboBox1.Items.Add(dt.Rows[i]["Id"]);
+            }
         }
     }
 }

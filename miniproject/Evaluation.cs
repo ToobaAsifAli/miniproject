@@ -138,7 +138,7 @@ namespace miniproject
             con.Open();
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "insert into Evaluation values('" + textBox1.Text + "','" + textBox2.Text + "','" + textBox3.Text + "')";// + "insert into Student values('" + textBox7.Text + "')";
+            cmd.CommandText = "insert into Evaluation values('" + textBox1.Text+ "','" + textBox2.Text + "','" + textBox3.Text + "')";// + "insert into Student values('" + textBox7.Text + "')";
             cmd.ExecuteNonQuery();
             con.Close();
             textBox1.Text = "";

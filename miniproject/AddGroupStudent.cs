@@ -173,14 +173,83 @@ namespace miniproject
 
 
 
+            //con.Open();
+
+
+
+
+            //string gender = comboBox1.SelectedItem.ToString();
+
+            //string gdv = "select Id FROM Lookup WHERE Category = 'Status' AND value ='" + gender + "'";
+            //SqlCommand gdInt = new SqlCommand(gdv, con);
+            //int s = 0;
+            //SqlDataReader reader = gdInt.ExecuteReader();
+
+            //while (reader.Read())
+            //{
+            //    s = int.Parse(reader[0].ToString());
+            //}
+            //con.Close();
+            //con.Open();
+
+
+
+            ////string per = "INSERT into Person(FirstName , LastName , Contact , Email , DateOfBirth , Gender) values ('" + textBox1.Text + "' , '" + textBox2.Text + "' , '" + textBox3.Text + "' , '" + textBox4.Text + "' , '" + DateTime.Parse(textBox5.Text) + "' , '" + s + "')";
+            //string per = "INSERT into [Group](Created_On) values ('" + textBox2.Text + "' )";
+
+            //SqlCommand pesi = new SqlCommand(per, con);
+            //int a = pesi.ExecuteNonQuery();
+            //int value1 = 0;
+            //string query = "Select Id from [Group] where (Id = SCOPE_IDENTITY())";
+            //SqlCommand cmd = new SqlCommand(query, con);
+            //var s1 = cmd.ExecuteScalar().ToString();
+            //value1 = int.Parse(s1);
+            ////string designation = comboBox2.Text.ToString();
+            ////string desi = "select Id FROM Lookup WHERE Category = 'DESIGNATION' AND Value ='" + designation + "'";
+            ////SqlCommand d = new SqlCommand(desi, con);
+            ////int s2 = 0;
+            ////SqlDataReader reader1 = d.ExecuteReader();
+
+            ////while (reader1.Read())
+            ////{
+            ////    s2 = int.Parse(reader1[0].ToString());
+            ////}
+            //con.Close();
+            //con.Open();
+            ////(textBox1.Text.ToString())
+            //string q = "insert into GroupStudent values('" + value1 + "','" + gender + "' , '" + int.Parse(textBox1.Text.ToString()) + "' )";
+            //SqlCommand cmd1 = new SqlCommand(q, con);
+            //int z = cmd1.ExecuteNonQuery();
+
+            //int value2 = 0;
+            //string query2 = "Select Id from [Group] where (Id = SCOPE_IDENTITY())";
+            //SqlCommand cmd2 = new SqlCommand(query2, con);
+            //var s2 = cmd.ExecuteScalar().ToString();
+            //value2 = int.Parse(s2);
+            //if (MessageBox.Show("Do you want to add him as an Advisor", "Add_Advisor", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            //{
+            //    MessageBox.Show("Advisor has been assigned to you");
+            //}
+
+            //con.Close();
+
+            //textBox2.Text = "";
+
+            //comboBox1.Text = "";
+
+            //disp_data();
+
+
             con.Open();
 
+            //con.Open();
 
 
 
-            string gender = comboBox1.SelectedItem.ToString();
 
-            string gdv = "select Id FROM Lookup WHERE Category = 'Status' AND value ='" + gender + "'";
+            string status = comboBox1.SelectedItem.ToString();
+
+            string gdv = "select Id FROM Lookup WHERE Category = 'Status' AND value ='" + status + "'";
             SqlCommand gdInt = new SqlCommand(gdv, con);
             int s = 0;
             SqlDataReader reader = gdInt.ExecuteReader();
@@ -189,55 +258,35 @@ namespace miniproject
             {
                 s = int.Parse(reader[0].ToString());
             }
+          //  con.Close();
+
+            string gender = comboBox1.SelectedItem.ToString();
+            string g = comboBox2.SelectedItem.ToString();
+            DateTime dt = DateTime.Now;
+
+            string ps = "INSERT into GroupStudent(GroupId, EvaluationId ,status, EvaluationDate ) values ('" + gender + "' , '" + g + "' , '" + s+ "','" + dt + "')";
+
+            SqlCommand persi = new SqlCommand(ps, con);
+            int a = persi.ExecuteNonQuery();
+
+            //SqlCommand cmd = con.CreateCommand();
+            //cmd.CommandType = CommandType.Text;
+
+            //cmd.CommandText = "insert into Evaluation values('" + gender + "','" + g + "','" + textBox1.Text + "','" + dt+ "')";// + "insert into Student values('" + textBox7.Text + "')";
+            //cmd.ExecuteNonQuery();
             con.Close();
-            con.Open();
-
-
-
-            //string per = "INSERT into Person(FirstName , LastName , Contact , Email , DateOfBirth , Gender) values ('" + textBox1.Text + "' , '" + textBox2.Text + "' , '" + textBox3.Text + "' , '" + textBox4.Text + "' , '" + DateTime.Parse(textBox5.Text) + "' , '" + s + "')";
-            string per = "INSERT into [Group](Created_On) values ('" + textBox2.Text + "' )";
-
-            SqlCommand pesi = new SqlCommand(per, con);
-            int a = pesi.ExecuteNonQuery();
-            int value1 = 0;
-            string query = "Select Id from [Group] where (Id = SCOPE_IDENTITY())";
-            SqlCommand cmd = new SqlCommand(query, con);
-            var s1 = cmd.ExecuteScalar().ToString();
-            value1 = int.Parse(s1);
-            //string designation = comboBox2.Text.ToString();
-            //string desi = "select Id FROM Lookup WHERE Category = 'DESIGNATION' AND Value ='" + designation + "'";
-            //SqlCommand d = new SqlCommand(desi, con);
-            //int s2 = 0;
-            //SqlDataReader reader1 = d.ExecuteReader();
-
-            //while (reader1.Read())
-            //{
-            //    s2 = int.Parse(reader1[0].ToString());
-            //}
-            con.Close();
-            con.Open();
-            //(textBox1.Text.ToString())
-            string q = "insert into GroupStudent values('" + value1 + "','" + gender + "' , '" + int.Parse(textBox1.Text.ToString()) + "' )";
-            SqlCommand cmd1 = new SqlCommand(q, con);
-            int z = cmd1.ExecuteNonQuery();
-
-            int value2 = 0;
-            string query2 = "Select Id from [Group] where (Id = SCOPE_IDENTITY())";
-            SqlCommand cmd2 = new SqlCommand(query2, con);
-            var s2 = cmd.ExecuteScalar().ToString();
-            value2 = int.Parse(s2);
-            if (MessageBox.Show("Do you want to add him as an Advisor", "Add_Advisor", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                MessageBox.Show("Advisor has been assigned to you");
-            }
-
-            con.Close();
-          
-            textBox2.Text = "";
-          
+        //    textBox1.Text = "";
+         //   textBox2.Text = "";
             comboBox1.Text = "";
-         
-            disp_data();
+            comboBox2.Text = "";
+
+            //   textBox7.Text = "";
+            //disp_data();
+            if (MessageBox.Show("Do you really want to add this Evaluation", "Insert", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+
+                MessageBox.Show("Record has been inserted successfully");
+            }
 
         }
 
@@ -259,6 +308,11 @@ namespace miniproject
         private void Displaybutton_Click(object sender, EventArgs e)
         {
             disp_data();
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
