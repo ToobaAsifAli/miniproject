@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace miniproject
 {
-    public partial class GroupProject : Form
+    public partial class GroupProject : MaterialSkin.Controls.MaterialForm
     {
         public GroupProject()
         {
             InitializeComponent();
+        }
+
+        private void GroupProject_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
