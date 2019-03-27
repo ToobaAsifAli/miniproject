@@ -33,9 +33,12 @@
             this.Updatebutton = new System.Windows.Forms.Button();
             this.Savebutton = new System.Windows.Forms.Button();
             this.Displaybutton = new System.Windows.Forms.Button();
-            this.AssignmentDatelabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.ProjectIdlabel = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.GroupIdlabel = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,6 +81,7 @@
             this.Savebutton.TabIndex = 23;
             this.Savebutton.Text = "Save";
             this.Savebutton.UseVisualStyleBackColor = false;
+            this.Savebutton.Click += new System.EventHandler(this.Savebutton_Click);
             // 
             // Displaybutton
             // 
@@ -90,21 +94,15 @@
             this.Displaybutton.UseVisualStyleBackColor = false;
             this.Displaybutton.Click += new System.EventHandler(this.Displaybutton_Click);
             // 
-            // AssignmentDatelabel
+            // ProjectIdlabel
             // 
-            this.AssignmentDatelabel.AutoSize = true;
-            this.AssignmentDatelabel.Location = new System.Drawing.Point(98, 93);
-            this.AssignmentDatelabel.Name = "AssignmentDatelabel";
-            this.AssignmentDatelabel.Size = new System.Drawing.Size(87, 13);
-            this.AssignmentDatelabel.TabIndex = 27;
-            this.AssignmentDatelabel.Text = "Assignment Date";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(229, 93);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 28;
+            this.ProjectIdlabel.AutoSize = true;
+            this.ProjectIdlabel.Location = new System.Drawing.Point(98, 93);
+            this.ProjectIdlabel.Name = "ProjectIdlabel";
+            this.ProjectIdlabel.Size = new System.Drawing.Size(52, 13);
+            this.ProjectIdlabel.TabIndex = 27;
+            this.ProjectIdlabel.Text = "Project Id";
+            this.ProjectIdlabel.Click += new System.EventHandler(this.AssignmentDatelabel_Click);
             // 
             // dataGridView1
             // 
@@ -114,14 +112,52 @@
             this.dataGridView1.Size = new System.Drawing.Size(468, 150);
             this.dataGridView1.TabIndex = 29;
             // 
+            // GroupIdlabel
+            // 
+            this.GroupIdlabel.AutoSize = true;
+            this.GroupIdlabel.Location = new System.Drawing.Point(101, 45);
+            this.GroupIdlabel.Name = "GroupIdlabel";
+            this.GroupIdlabel.Size = new System.Drawing.Size(48, 13);
+            this.GroupIdlabel.TabIndex = 30;
+            this.GroupIdlabel.Text = "Group Id";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(215, 45);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 31;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(215, 84);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(121, 21);
+            this.comboBox2.TabIndex = 32;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(434, 118);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 33;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // AddGroupProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.GroupIdlabel);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.AssignmentDatelabel);
+            this.Controls.Add(this.ProjectIdlabel);
             this.Controls.Add(this.Searchbutton);
             this.Controls.Add(this.Deletebutton);
             this.Controls.Add(this.Updatebutton);
@@ -143,8 +179,11 @@
         private System.Windows.Forms.Button Updatebutton;
         private System.Windows.Forms.Button Savebutton;
         private System.Windows.Forms.Button Displaybutton;
-        private System.Windows.Forms.Label AssignmentDatelabel;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label ProjectIdlabel;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label GroupIdlabel;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Button button1;
     }
 }

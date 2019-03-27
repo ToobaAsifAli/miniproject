@@ -242,12 +242,9 @@ namespace miniproject
 
             con.Open();
 
-            //con.Open();
 
 
-
-
-            string status = comboBox1.SelectedItem.ToString();
+            string status = comboBox3.SelectedItem.ToString();
 
             string gdv = "select Id FROM Lookup WHERE Category = 'Status' AND value ='" + status + "'";
             SqlCommand gdInt = new SqlCommand(gdv, con);
@@ -258,13 +255,13 @@ namespace miniproject
             {
                 s = int.Parse(reader[0].ToString());
             }
-          //  con.Close();
-
+            con.Close();
+            con.Open();
             string gender = comboBox1.SelectedItem.ToString();
             string g = comboBox2.SelectedItem.ToString();
             DateTime dt = DateTime.Now;
 
-            string ps = "INSERT into GroupStudent(GroupId, EvaluationId ,status, EvaluationDate ) values ('" + gender + "' , '" + g + "' , '" + s+ "','" + dt + "')";
+            string ps = "INSERT into GroupStudent(GroupId, StudentId ,Status, AssignmentDate ) values ('" + gender + "' , '" + g + "' , '" + s+ "','" + dt + "')";
 
             SqlCommand persi = new SqlCommand(ps, con);
             int a = persi.ExecuteNonQuery();
@@ -295,7 +292,7 @@ namespace miniproject
             con.Open();
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "SELECT [Group].Id as [Group Id],Student.Id as [Student Id],[Group].Created_On, GroupStudent.Status, GroupStudent.AssignmentDate FROM ([Group] JOIN Groupstudent ON [Group].Id = GroupStudent.GroupId) JOIN Person ON GroupStudent.StudentId = Person.Id";
+            cmd.CommandText = "SELECT [Group].Id as [Group Id],Student.Id as [Student Id],[Group].Created_On, GroupStudent.Status, GroupStudent.AssignmentDate FROM ([Group] JOIN Groupstudent ON [Group].Id = GroupStudent.GroupId) JOIN Student ON GroupStudent.StudentId = Student.Id";
 
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
@@ -313,6 +310,30 @@ namespace miniproject
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            con.Open();
+            SqlDataAdapter a1 = new SqlDataAdapter("select * from [Group]", con);
+
+            DataTable dt = new DataTable();
+            a1.Fill(dt);
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                comboBox1.Items.Add(dt.Rows[i]["Id"]);
+            }
+            con.Close();
+            con.Open();
+            SqlDataAdapter a2 = new SqlDataAdapter("select * from Student", con);
+            DataTable dt1 = new DataTable();
+            a2.Fill(dt1);
+            for (int j = 0; j < dt1.Rows.Count; j++)
+            {
+                comboBox2.Items.Add(dt1.Rows[j]["Id"]);
+            }
+            con.Close();
         }
     }
 }
