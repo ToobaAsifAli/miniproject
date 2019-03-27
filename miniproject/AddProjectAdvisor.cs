@@ -32,7 +32,10 @@ namespace miniproject
 
         public void disp_data()
         {
-            con.Open();
+            if (con.State == ConnectionState.Closed)
+            {
+                con.Open();
+            }
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
             //cmd.CommandText = "select Advisor.Id,Project.Id,,ProjectAdvisor.AdvisorRole,ProjectAdvisor.AssignmentDate From (ProjectAdvisor JOIN Advisor ON ProjectAdvisor.AdvisorId = Advisor.Id )JOIN Project ON ProjectAdvisor.ProjectId = Project.Id";
@@ -189,6 +192,69 @@ namespace miniproject
                 comboBox2.Items.Add(dt1.Rows[j]["Id"]);
             }
             con.Close();
+        }
+
+        private void Updatebutton_Click(object sender, EventArgs e)
+        {
+            if (con.State == ConnectionState.Closed)
+            {
+                con.Open();
+            }
+            string gdv = "select Id FROM Lookup WHERE Category = 'ADVISOR_ROLE' AND value ='" + comboBox3.Text.ToString() + "'";
+            SqlCommand gdInt = new SqlCommand(gdv, con);
+            int s = 0;
+            SqlDataReader reader = gdInt.ExecuteReader();
+
+            while (reader.Read())
+            {
+                s = int.Parse(reader[0].ToString());
+            }
+            reader.Close();
+
+            string gender = comboBox1.SelectedItem.ToString();
+            string g = comboBox2.SelectedItem.ToString();
+            DateTime dt = DateTime.Now;
+
+
+            //string que1 = string.Format("SELECT Id from P Where Email = '" + textBox4.Text + "'");
+            //SqlCommand cmd = new SqlCommand(que1, con);
+            //var aa = cmd.ExecuteScalar().ToString();
+            //int s1 = int.Parse(aa);
+            //// int id =int.Parse( cmd.ExecuteScalar());
+
+            //cmd.ExecuteNonQuery();
+
+            string ps1 = "Update ProjectAdvisor set  AssignmentDate ='" + dt + "', AdvisorRole ='" + s + "'  WHERE (AdvisorId = '" + gender + "'and ProjectId ='" + g + "')";
+            SqlCommand pesi = new SqlCommand(ps1, con);
+            int a1 = pesi.ExecuteNonQuery();
+            disp_data();
+            con.Close();
+        }
+
+        private void Deletebutton_Click(object sender, EventArgs e)
+        {
+            if (con.State == ConnectionState.Closed)
+            {
+                con.Open();
+            }
+
+            string gender = comboBox1.SelectedItem.ToString();
+            string g = comboBox2.SelectedItem.ToString();
+
+           
+            string display = String.Format("DELETE FROM ProjectAdvisor WHERE  (AdvisorId = '" + gender + "'and ProjectId = '" + g + "')");
+            SqlCommand cmd = new SqlCommand(display, con);
+            cmd.ExecuteNonQuery();
+
+            //cmd.CommandText = string.Format("DELETE FROM Person WHERE Email = '{0}'", email);
+            //cmd.ExecuteNonQuery();
+            con.Close();
+            disp_data();
+            if (MessageBox.Show("Do you really want to delete this record", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+
+                MessageBox.Show("Record has been deleted successfully");
+            }
         }
     }
 }

@@ -27,7 +27,10 @@ namespace miniproject
 
         public void disp_data()
         {
-            con.Open();
+            if (con.State == ConnectionState.Closed)
+            {
+                con.Open();
+            }
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = "SELECT [Group].Id as [Group Id],Evaluation.Id as [Evaluation Id], GroupEvaluation.ObtainedMarks, GroupEvaluation.EvaluationDate FROM ([Group] JOIN GroupEvaluation ON [Group].Id = GroupEvaluation.GroupId) JOIN Evaluation ON GroupEvaluation.EvaluationId = Evaluation.Id";
@@ -68,7 +71,7 @@ namespace miniproject
             //cmd.ExecuteNonQuery();
             con.Close();
             textBox1.Text = "";
-            textBox2.Text = "";
+           
            comboBox1.Text = "";
            comboBox2.Text = "";
 
@@ -103,6 +106,61 @@ namespace miniproject
                 comboBox2.Items.Add(dt1.Rows[j]["Id"]);
             }
             con.Close();
+        }
+
+        private void Updatebutton_Click(object sender, EventArgs e)
+        {
+            if (con.State == ConnectionState.Closed)
+            {
+                con.Open();
+            }
+
+
+
+            string gender = comboBox1.SelectedItem.ToString();
+            string g = comboBox2.SelectedItem.ToString();
+            DateTime dt = DateTime.Now;
+            
+
+            //string que1 = string.Format("SELECT Id from P Where Email = '" + textBox4.Text + "'");
+            //SqlCommand cmd = new SqlCommand(que1, con);
+            //var aa = cmd.ExecuteScalar().ToString();
+            //int s1 = int.Parse(aa);
+            //// int id =int.Parse( cmd.ExecuteScalar());
+
+            //cmd.ExecuteNonQuery();
+
+            string ps1 = "Update GroupEvaluation set ObtainedMarks ='" + textBox1.Text + "', EvaluationDate ='"+dt+"'  WHERE (GroupId = '" + gender + "'and EvaluationId ='" + g +"')";
+            SqlCommand pesi = new SqlCommand(ps1, con);
+            int a1 = pesi.ExecuteNonQuery();
+            disp_data();
+            con.Close();
+        }
+
+        private void Deletebutton_Click(object sender, EventArgs e)
+        {
+            if (con.State == ConnectionState.Closed)
+            {
+                con.Open();
+            }
+
+            string gender = comboBox1.SelectedItem.ToString();
+            string g = comboBox2.SelectedItem.ToString();
+
+
+            string display = String.Format("DELETE FROM GroupEvaluation WHERE  (GroupId = '" + gender + "'and EvaluationId = '" + g + "')");
+            SqlCommand cmd = new SqlCommand(display, con);
+            cmd.ExecuteNonQuery();
+
+            //cmd.CommandText = string.Format("DELETE FROM Person WHERE Email = '{0}'", email);
+            //cmd.ExecuteNonQuery();
+            con.Close();
+            disp_data();
+            if (MessageBox.Show("Do you really want to delete this record", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+
+                MessageBox.Show("Record has been deleted successfully");
+            }
         }
     }
 }

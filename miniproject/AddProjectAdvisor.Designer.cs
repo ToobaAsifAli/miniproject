@@ -39,8 +39,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.StudentIdlabel = new System.Windows.Forms.Label();
-            this.GroupIdlabel = new System.Windows.Forms.Label();
+            this.ProjectIdlabel = new System.Windows.Forms.Label();
+            this.AdvisorIdlabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,6 +81,7 @@
             this.Deletebutton.TabIndex = 25;
             this.Deletebutton.Text = "Delete";
             this.Deletebutton.UseVisualStyleBackColor = false;
+            this.Deletebutton.Click += new System.EventHandler(this.Deletebutton_Click);
             // 
             // Updatebutton
             // 
@@ -91,6 +92,7 @@
             this.Updatebutton.TabIndex = 24;
             this.Updatebutton.Text = "Update";
             this.Updatebutton.UseVisualStyleBackColor = false;
+            this.Updatebutton.Click += new System.EventHandler(this.Updatebutton_Click);
             // 
             // Savebutton
             // 
@@ -153,23 +155,23 @@
             this.comboBox3.Size = new System.Drawing.Size(121, 21);
             this.comboBox3.TabIndex = 36;
             // 
-            // StudentIdlabel
+            // ProjectIdlabel
             // 
-            this.StudentIdlabel.AutoSize = true;
-            this.StudentIdlabel.Location = new System.Drawing.Point(105, 98);
-            this.StudentIdlabel.Name = "StudentIdlabel";
-            this.StudentIdlabel.Size = new System.Drawing.Size(56, 13);
-            this.StudentIdlabel.TabIndex = 35;
-            this.StudentIdlabel.Text = "Student Id";
+            this.ProjectIdlabel.AutoSize = true;
+            this.ProjectIdlabel.Location = new System.Drawing.Point(105, 98);
+            this.ProjectIdlabel.Name = "ProjectIdlabel";
+            this.ProjectIdlabel.Size = new System.Drawing.Size(52, 13);
+            this.ProjectIdlabel.TabIndex = 35;
+            this.ProjectIdlabel.Text = "Project Id";
             // 
-            // GroupIdlabel
+            // AdvisorIdlabel
             // 
-            this.GroupIdlabel.AutoSize = true;
-            this.GroupIdlabel.Location = new System.Drawing.Point(105, 44);
-            this.GroupIdlabel.Name = "GroupIdlabel";
-            this.GroupIdlabel.Size = new System.Drawing.Size(48, 13);
-            this.GroupIdlabel.TabIndex = 34;
-            this.GroupIdlabel.Text = "Group Id";
+            this.AdvisorIdlabel.AutoSize = true;
+            this.AdvisorIdlabel.Location = new System.Drawing.Point(105, 44);
+            this.AdvisorIdlabel.Name = "AdvisorIdlabel";
+            this.AdvisorIdlabel.Size = new System.Drawing.Size(54, 13);
+            this.AdvisorIdlabel.TabIndex = 34;
+            this.AdvisorIdlabel.Text = "Advisor Id";
             // 
             // AddProjectAdvisor
             // 
@@ -179,8 +181,8 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.StudentIdlabel);
-            this.Controls.Add(this.GroupIdlabel);
+            this.Controls.Add(this.ProjectIdlabel);
+            this.Controls.Add(this.AdvisorIdlabel);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.Searchbutton);
             this.Controls.Add(this.Deletebutton);
@@ -210,7 +212,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.Label StudentIdlabel;
-        private System.Windows.Forms.Label GroupIdlabel;
+        private System.Windows.Forms.Label ProjectIdlabel;
+        private System.Windows.Forms.Label AdvisorIdlabel;
     }
 }

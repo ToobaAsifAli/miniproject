@@ -61,6 +61,7 @@
             this.Deletebutton.TabIndex = 25;
             this.Deletebutton.Text = "Delete";
             this.Deletebutton.UseVisualStyleBackColor = false;
+            this.Deletebutton.Click += new System.EventHandler(this.Deletebutton_Click);
             // 
             // Updatebutton
             // 
@@ -71,6 +72,7 @@
             this.Updatebutton.TabIndex = 24;
             this.Updatebutton.Text = "Update";
             this.Updatebutton.UseVisualStyleBackColor = false;
+            this.Updatebutton.Click += new System.EventHandler(this.Updatebutton_Click);
             // 
             // Savebutton
             // 
