@@ -36,7 +36,8 @@ namespace miniproject
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
             //cmd.CommandText = "select Advisor.Id,Project.Id,,ProjectAdvisor.AdvisorRole,ProjectAdvisor.AssignmentDate From (ProjectAdvisor JOIN Advisor ON ProjectAdvisor.AdvisorId = Advisor.Id )JOIN Project ON ProjectAdvisor.ProjectId = Project.Id";
-            cmd.CommandText = "SELECT Advisor.Id as [Advisor Id] ,Project.Id as [Project Id], ProjectAdvisor.AdvisorRole, ProjectAdvisor.AssignmentDate FROM (ProjectAdvisor JOIN Advisor ON ProjectAdvisor.AdvisorId = Advisor.Id) JOIN Project ON ProjectAdvisor.ProjectId = Project.Id";
+            //  cmd.CommandText = "SELECT Advisor.Id as [Advisor Id] ,Project.Id as [Project Id], ProjectAdvisor.AdvisorRole, ProjectAdvisor.AssignmentDate FROM (ProjectAdvisor JOIN Advisor ON ProjectAdvisor.AdvisorId = Advisor.Id) JOIN Project ON ProjectAdvisor.ProjectId = Project.Id";
+            cmd.CommandText = "SELECT [Advisor].Id as [Advisor Id],Project.Id as [Project Id], ProjectAdvisor.AdvisorRole, ProjectAdvisor.AssignmentDate FROM ([Advisor] JOIN ProjectAdvisor ON [Advisor].Id = ProjectAdvisor.AdvisorId) JOIN Project ON ProjectAdvisor.ProjectId = Project.Id";
 
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
@@ -48,63 +49,112 @@ namespace miniproject
 
         private void Savebutton_Click(object sender, EventArgs e)
         {
+            //con.Open();
+
+
+
+
+            //string advisorrole = comboBox1.SelectedItem.ToString();
+
+            //string advisorvalue = "select Id FROM Lookup WHERE Category = 'Gender' AND value ='" + advisorrole + "'";
+            //SqlCommand genderInt = new SqlCommand(advisorvalue, con);
+            //int s = 0;
+            //SqlDataReader reader = genderInt.ExecuteReader();
+
+            //while (reader.Read())
+            //{
+            //    s = int.Parse(reader[0].ToString());
+            //}
+
+
+            //con.Close();
+            //con.Open();
+
+            //string ps = "INSERT into ProjectAdvisor(AdvisorRole, AssignmentDate) values ('" + s + "' , '" + textBox1.Text + "')";
+
+            //SqlCommand persi = new SqlCommand(ps, con);
+            //int a = persi.ExecuteNonQuery();
+
+            //int s1 = 0;
+            ////----------------------------------------------------------------------------------------
+            //string que = "Select Id from Advidor where (Id = SCOPE_IDENTITY())";
+            //SqlCommand cmd = new SqlCommand(que, con);
+            //var v = cmd.ExecuteScalar().ToString();
+            //s1 = int.Parse(v);
+            ////---------------------------------------------------------------------------------------------
+            ////string q = "insert into Student values('" + s1 + "','" + textBox7.Text.ToString() + "')";
+            ////SqlCommand cmd1 = new SqlCommand(q, con);
+            ////int k = cmd1.ExecuteNonQuery();
+            //int s2 = 0;
+            ////----------------------------------------------------------------------------------------
+            //string quex = "Select Id from Project where (Id = SCOPE_IDENTITY())";
+            //SqlCommand cmd1 = new SqlCommand(quex, con);
+            //var vs = cmd.ExecuteScalar().ToString();
+            //s2 = int.Parse(vs);
+            ////---------------------------------------------------------------------------------------------
+
+            //con.Close();
+            //textBox1.Text = "";
+
+            //comboBox1.Text = "";
+
+            //disp_data();
+            ////MessageBox.Show("Data Inserted");
+
+            //if (MessageBox.Show("Do you really want to register this student", "Register", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            //{
+
+            //    MessageBox.Show("Record has been inserted successfully");
+            //}
+
+
+
             con.Open();
 
 
 
+            string status = comboBox3.SelectedItem.ToString();
 
-            string advisorrole = comboBox1.SelectedItem.ToString();
-
-            string advisorvalue = "select Id FROM Lookup WHERE Category = 'Gender' AND value ='" + advisorrole + "'";
-            SqlCommand genderInt = new SqlCommand(advisorvalue, con);
+            string gdv = "select Id FROM Lookup WHERE Category = 'ADVISOR_ROLE' AND value ='" + status + "'";
+            SqlCommand gdInt = new SqlCommand(gdv, con);
             int s = 0;
-            SqlDataReader reader = genderInt.ExecuteReader();
+            SqlDataReader reader = gdInt.ExecuteReader();
 
             while (reader.Read())
             {
                 s = int.Parse(reader[0].ToString());
             }
-
-
             con.Close();
             con.Open();
+            string gender = comboBox1.SelectedItem.ToString();
+            string g = comboBox2.SelectedItem.ToString();
+            DateTime dt = DateTime.Now;
 
-            string ps = "INSERT into ProjectAdvisor(AdvisorRole, AssignmentDate) values ('" + s + "' , '" + textBox1.Text + "')";
+            string ps = "INSERT into ProjectAdvisor(AdvisorId, ProjectId ,AdvisorRole, AssignmentDate ) values ('" + gender + "' , '" + g + "' , '" + s + "','" + dt + "')";
 
             SqlCommand persi = new SqlCommand(ps, con);
             int a = persi.ExecuteNonQuery();
 
-            int s1 = 0;
-            //----------------------------------------------------------------------------------------
-            string que = "Select Id from Advidor where (Id = SCOPE_IDENTITY())";
-            SqlCommand cmd = new SqlCommand(que, con);
-            var v = cmd.ExecuteScalar().ToString();
-            s1 = int.Parse(v);
-            //---------------------------------------------------------------------------------------------
-            //string q = "insert into Student values('" + s1 + "','" + textBox7.Text.ToString() + "')";
-            //SqlCommand cmd1 = new SqlCommand(q, con);
-            //int k = cmd1.ExecuteNonQuery();
-            int s2 = 0;
-            //----------------------------------------------------------------------------------------
-            string quex = "Select Id from Project where (Id = SCOPE_IDENTITY())";
-            SqlCommand cmd1 = new SqlCommand(quex, con);
-            var vs = cmd.ExecuteScalar().ToString();
-            s2 = int.Parse(vs);
-            //---------------------------------------------------------------------------------------------
+            //SqlCommand cmd = con.CreateCommand();
+            //cmd.CommandType = CommandType.Text;
 
+            //cmd.CommandText = "insert into Evaluation values('" + gender + "','" + g + "','" + textBox1.Text + "','" + dt+ "')";// + "insert into Student values('" + textBox7.Text + "')";
+            //cmd.ExecuteNonQuery();
             con.Close();
-            textBox1.Text = "";
-           
+            //    textBox1.Text = "";
+            //   textBox2.Text = "";
             comboBox1.Text = "";
+            comboBox2.Text = "";
 
-            disp_data();
-            //MessageBox.Show("Data Inserted");
-
-            if (MessageBox.Show("Do you really want to register this student", "Register", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            //   textBox7.Text = "";
+            //disp_data();
+            if (MessageBox.Show("Do you really want to add this Evaluation", "Insert", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
 
                 MessageBox.Show("Record has been inserted successfully");
             }
+
+
         }
 
         private void AdvisorRolelabel_Click(object sender, EventArgs e)
@@ -115,6 +165,30 @@ namespace miniproject
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            con.Open();
+            SqlDataAdapter a1 = new SqlDataAdapter("select * from [Advisor]", con);
+
+            DataTable dt = new DataTable();
+            a1.Fill(dt);
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                comboBox1.Items.Add(dt.Rows[i]["Id"]);
+            }
+            con.Close();
+            con.Open();
+            SqlDataAdapter a2 = new SqlDataAdapter("select * from Project", con);
+            DataTable dt1 = new DataTable();
+            a2.Fill(dt1);
+            for (int j = 0; j < dt1.Rows.Count; j++)
+            {
+                comboBox2.Items.Add(dt1.Rows[j]["Id"]);
+            }
+            con.Close();
         }
     }
 }
