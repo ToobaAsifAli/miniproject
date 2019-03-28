@@ -10,11 +10,37 @@ using System.Windows.Forms;
 
 namespace miniproject
 {
-    public partial class ProjectAdvisor : Form
+    public partial class ProjectAdvisor : MaterialSkin.Controls.MaterialForm
     {
         public ProjectAdvisor()
         {
             InitializeComponent();
+        }
+
+        private void ProjectAdvisor_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form1 f3 = new Form1();
+            this.Hide();
+            f3.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form1 f4 = new Form1();
+            this.Hide();
+            f4.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            AddProjectAdvisor f5 = new AddProjectAdvisor();
+            this.Hide();
+            f5.Show();
         }
     }
 }

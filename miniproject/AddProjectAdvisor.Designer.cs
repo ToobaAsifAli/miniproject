@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddProjectAdvisor));
             this.AdvisorRolelabel = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Searchbutton = new System.Windows.Forms.Button();
@@ -41,13 +42,15 @@
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.ProjectIdlabel = new System.Windows.Forms.Label();
             this.AdvisorIdlabel = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // AdvisorRolelabel
             // 
             this.AdvisorRolelabel.AutoSize = true;
-            this.AdvisorRolelabel.Location = new System.Drawing.Point(105, 144);
+            this.AdvisorRolelabel.Location = new System.Drawing.Point(113, 190);
             this.AdvisorRolelabel.Name = "AdvisorRolelabel";
             this.AdvisorRolelabel.Size = new System.Drawing.Size(67, 13);
             this.AdvisorRolelabel.TabIndex = 1;
@@ -57,7 +60,7 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(108, 192);
+            this.dataGridView1.Location = new System.Drawing.Point(108, 241);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(493, 150);
             this.dataGridView1.TabIndex = 2;
@@ -119,7 +122,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(220, 36);
+            this.comboBox1.Location = new System.Drawing.Point(228, 82);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 28;
@@ -127,7 +130,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(447, 134);
+            this.button1.Location = new System.Drawing.Point(417, 201);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 38;
@@ -138,7 +141,7 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(220, 90);
+            this.comboBox2.Location = new System.Drawing.Point(228, 136);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 21);
             this.comboBox2.TabIndex = 37;
@@ -150,7 +153,7 @@
             "Main Advisor",
             "Co-Advisror",
             "Industry Advisor"});
-            this.comboBox3.Location = new System.Drawing.Point(220, 141);
+            this.comboBox3.Location = new System.Drawing.Point(228, 187);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(121, 21);
             this.comboBox3.TabIndex = 36;
@@ -158,7 +161,7 @@
             // ProjectIdlabel
             // 
             this.ProjectIdlabel.AutoSize = true;
-            this.ProjectIdlabel.Location = new System.Drawing.Point(105, 98);
+            this.ProjectIdlabel.Location = new System.Drawing.Point(113, 144);
             this.ProjectIdlabel.Name = "ProjectIdlabel";
             this.ProjectIdlabel.Size = new System.Drawing.Size(52, 13);
             this.ProjectIdlabel.TabIndex = 35;
@@ -167,17 +170,42 @@
             // AdvisorIdlabel
             // 
             this.AdvisorIdlabel.AutoSize = true;
-            this.AdvisorIdlabel.Location = new System.Drawing.Point(105, 44);
+            this.AdvisorIdlabel.Location = new System.Drawing.Point(113, 90);
             this.AdvisorIdlabel.Name = "AdvisorIdlabel";
             this.AdvisorIdlabel.Size = new System.Drawing.Size(54, 13);
             this.AdvisorIdlabel.TabIndex = 34;
             this.AdvisorIdlabel.Text = "Advisor Id";
+            // 
+            // button2
+            // 
+            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Location = new System.Drawing.Point(39, 2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(36, 20);
+            this.button2.TabIndex = 40;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Location = new System.Drawing.Point(1, 1);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(36, 21);
+            this.button3.TabIndex = 39;
+            this.button3.Text = " ";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // AddProjectAdvisor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox3);
@@ -214,5 +242,7 @@
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Label ProjectIdlabel;
         private System.Windows.Forms.Label AdvisorIdlabel;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }

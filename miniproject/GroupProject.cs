@@ -21,5 +21,19 @@ namespace miniproject
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form1 f3 = new Form1();
+            this.Hide();
+            f3.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form1 f4 = new Form1();
+            this.Hide();
+            f4.Show();
+        }
     }
 }

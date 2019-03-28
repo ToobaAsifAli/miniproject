@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace miniproject
 {
-    public partial class AddProjectAdvisor : Form
+    public partial class AddProjectAdvisor : MaterialSkin.Controls.MaterialForm
     {
         SqlConnection con = new SqlConnection("Data Source=DESKTOP-R6RA1PL\\TOOBAASIF;Initial Catalog=ProjectA;Persist Security Info=True;User ID=sa;Password=1212");
 
@@ -255,6 +255,20 @@ namespace miniproject
 
                 MessageBox.Show("Record has been deleted successfully");
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form1 f3 = new Form1();
+            this.Hide();
+            f3.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ProjectAdvisor f4 = new ProjectAdvisor();
+            this.Hide();
+            f4.Show();
         }
     }
 }

@@ -205,8 +205,17 @@
     <EmbeddedResource Include="Group.resx">
       <DependentUpon>Group.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GroupEvaluation.resx">
+      <DependentUpon>GroupEvaluation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GroupProject.resx">
+      <DependentUpon>GroupProject.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GroupStudent.resx">
       <DependentUpon>GroupStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProjectAdvisor.resx">
+      <DependentUpon>ProjectAdvisor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProjectMagement.resx">
       <DependentUpon>ProjectMagement.cs</DependentUpon>

@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace miniproject
 {
-    public partial class AddGroupStudent : Form
+    public partial class AddGroupStudent : MaterialSkin.Controls.MaterialForm
     {
 
 
@@ -400,6 +400,20 @@ namespace miniproject
 
                 MessageBox.Show("Record has been deleted successfully");
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form1 f3 = new Form1();
+            this.Hide();
+            f3.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Group f4 = new Group();
+            this.Hide();
+            f4.Show();
         }
     }
 }

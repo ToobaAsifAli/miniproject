@@ -50,5 +50,19 @@ namespace miniproject
             this.Hide();
             f4.Show();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Group f5 = new Group();
+            this.Hide();
+            f5.Show();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            ProjectAdvisor f6 = new ProjectAdvisor();
+            this.Hide();
+            f6.Show();
+        }
     }
 }

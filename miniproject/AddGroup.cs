@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace miniproject
 {
-    public partial class AddGroup : Form
+    public partial class AddGroup : MaterialSkin.Controls.MaterialForm
     {
         SqlConnection con = new SqlConnection("Data Source=DESKTOP-R6RA1PL\\TOOBAASIF;Initial Catalog=ProjectA;Persist Security Info=True;User ID=sa;Password=1212");
 
@@ -67,13 +67,27 @@ namespace miniproject
         {
 
 
-            SqlDataAdapter aa = new SqlDataAdapter("select * from student", con);
-            DataTable dt = new DataTable();
-            aa.Fill(dt);
-            for (int i = 0; i < dt.Rows.Count; i++)
-            {
-                comboBox1.Items.Add(dt.Rows[i]["Id"]);
-            }
+            //SqlDataAdapter aa = new SqlDataAdapter("select * from student", con);
+            //DataTable dt = new DataTable();
+            //aa.Fill(dt);
+            //for (int i = 0; i < dt.Rows.Count; i++)
+            //{
+            //    comboBox1.Items.Add(dt.Rows[i]["Id"]);
+            //}
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form1 f3 = new Form1();
+            this.Hide();
+            f3.Show();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Group f4 = new Group();
+            this.Hide();
+            f4.Show();
         }
     }
 }
