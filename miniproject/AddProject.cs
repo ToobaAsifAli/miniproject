@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -134,7 +135,35 @@ namespace miniproject
 
         private void Savebutton_Click(object sender, EventArgs e)
         {
-            con.Open();
+            if (con.State == ConnectionState.Closed)
+            {
+                con.Open();
+            }
+            if (textBox2.Text == "" ||richTextBox1.Text == "")
+
+
+            {
+                MessageBox.Show("Please fill in all fields", "Error", MessageBoxButtons.OK);
+                textBox2.Focus(); // set focus to lastNameTextBox
+                return;
+            } // end if
+
+
+            if (!Regex.Match(textBox2.Text, "^[A-Z][a-zA-Z]*$").Success)
+            {
+                // first name was incorrect
+                MessageBox.Show("Invalid first title", "Message", MessageBoxButtons.OK);
+                textBox2.Focus();
+                return;
+            } // end if
+
+            if (!Regex.Match(richTextBox1.Text, "^[A-Z][a-zA-Z]*$").Success)
+            {
+                // first name was incorrect
+                MessageBox.Show("Invalid description", "Message", MessageBoxButtons.OK);
+                textBox2.Focus();
+                return;
+            } // end if
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = "insert into Project values('" + textBox2.Text + "','" + richTextBox1.Text + "')";// + "insert into Student values('" + textBox7.Text + "')";
