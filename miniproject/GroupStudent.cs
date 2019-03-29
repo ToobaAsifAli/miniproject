@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace miniproject
 {
-    public partial class GroupStudent : MaterialSkin.Controls.MaterialForm
+    public partial class GroupStudent : Form
     {
         public GroupStudent()
         {

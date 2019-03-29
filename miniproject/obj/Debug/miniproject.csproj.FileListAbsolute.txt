@@ -39,3 +39,4 @@ C:\Users\ok\Documents\GitHub\miniproject\miniproject\obj\Debug\miniproject.AddPr
 C:\Users\ok\Documents\GitHub\miniproject\miniproject\obj\Debug\miniproject.GroupEvaluation.resources
 C:\Users\ok\Documents\GitHub\miniproject\miniproject\obj\Debug\miniproject.GroupProject.resources
 C:\Users\ok\Documents\GitHub\miniproject\miniproject\obj\Debug\miniproject.ProjectAdvisor.resources
+C:\Users\ok\Documents\GitHub\miniproject\miniproject\obj\Debug\miniproject.Management.resources

@@ -52,7 +52,7 @@ namespace miniproject
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AddGroupEvaluation f7 = new AddGroupEvaluation();
+            Management f7 = new Management();
             this.Hide();
             f7.Show();
         }
