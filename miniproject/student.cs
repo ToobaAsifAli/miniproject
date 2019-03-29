@@ -58,54 +58,55 @@ namespace miniproject
              // if address format invalid show message
              // if (!Regex.Match(textBox7.Text, @"^[0-9]+\s+([a-zA-Z]+|[a-zA-Z]+\s[a-zA-Z]+)$").Success)
              //  //if (!Regex.Match(phoneTextBox.Text, @"^[1-9]\d{2}-[1-9]\d{2}-\d{4}$").Success)
-            if (!Regex.Match(textBox7.Text, @"^[0-9]\d{4}-[A-Z]\s{2}-[0-9]\d{2}$").Success)
+            if (!Regex.Match(textBox7.Text, @"^\d{4}(-[A-Z][A-Z])(-\d{3})").Success)
             {
                 // address was incorrect
                 MessageBox.Show("Invalid Registration Number", "Message", MessageBoxButtons.OK);
-               textBox7.Focus();
+                textBox7.Focus();
+                return;
+            } // end if
+
+            //------------------------------------------------------------------------------------
+            // if city format invalid show message
+
+            if (!Regex.Match(textBox3.Text, @"^([0-9]{4})\-([0-9]{7})$").Success)
+            {
+                // city was incorrect
+                MessageBox.Show("Invalid Contact Number", "Message", MessageBoxButtons.OK);
+                textBox3.Focus();
+                return;
+            }// end if 
+             // if state format invalid show message
+            if (!Regex.Match(textBox5.Text, @"(((0|1)[0-9]|2[0-9]|3[0-1])\/(0[1-9]|1[0-2])\/((19|20)\d\d))$").Success)
+            {
+                // state was incorrect
+                MessageBox.Show("Invalid date", "Message", MessageBoxButtons.OK);
+                textBox5.Focus();
                 return;
             } // end if 
+              // if zip code format invalid show message
+            if (!Regex.Match(textBox4.Text, @"^([\w]+)@([\w]+)\.([\w]+)$").Success)
+            {
+                // zip was incorrect
+                MessageBox.Show("Invalid email address", "Message", MessageBoxButtons.OK);
+                textBox4.Focus();
+                return;
+            } // end if
+              //// if phone number format invalid show message
+              //if (!Regex.Match(phoneTextBox.Text, @"^[1-9]\d{2}-[1-9]\d{2}-\d{4}$").Success)
+              //{
+              //    // phone number was incorrect
+              //    MessageBox.Show("Invalid phone number", "Message", MessageBoxButton.OK, MessageBoxImage.Error);
+              //    phoneTextBox.Focus();
+              //    return;
+              //}// end if 
+              //// information is valid, signal user and exit application
+              //this.Hide(); // hide main window while MessageBox displays
+              //MessageBox.Show("Thank You!", "Information Correct", MessageBoxButton.OK, MessageBoxImage.Information);
 
             //------------------------------------------------------------------------------------
-            //// if city format invalid show message
-            //if (!Regex.Match(cityTextBox.Text, @"^([a-zA-Z]+|[a-zA-Z]+\s[a-zA-Z]+)$").Success)
-            //{
-            //    // city was incorrect
-            //    MessageBox.Show("Invalid city", "Message", MessageBoxButton.OK, MessageBoxImage.Error);
-            //    cityTextBox.Focus();
-            //    return;
-            //}// end if 
-            //// if state format invalid show message
-            //if (!Regex.Match(stateTextBox.Text, @"^([a-zA-Z]+|[a-zA-Z]+\s[a-zA-Z]+)$").Success)
-            //{
-            //    // state was incorrect
-            //    MessageBox.Show("Invalid state", "Message", MessageBoxButton.OK, MessageBoxImage.Error);
-            //    stateTextBox.Focus();
-            //    return;
-            //} // end if 
-            //// if zip code format invalid show message
-            //if (!Regex.Match(zipCodeTextBox.Text, @"^\d{5}$").Success)
-            //{
-            //    // zip was incorrect
-            //    MessageBox.Show("Invalid zip code", "Message", MessageBoxButton.OK, MessageBoxImage.Error);
-            //    zipCodeTextBox.Focus();
-            //    return;
-            //} // end if
-            //// if phone number format invalid show message
-            //if (!Regex.Match(phoneTextBox.Text, @"^[1-9]\d{2}-[1-9]\d{2}-\d{4}$").Success)
-            //{
-            //    // phone number was incorrect
-            //    MessageBox.Show("Invalid phone number", "Message", MessageBoxButton.OK, MessageBoxImage.Error);
-            //    phoneTextBox.Focus();
-            //    return;
-            //}// end if 
-            //// information is valid, signal user and exit application
-            //this.Hide(); // hide main window while MessageBox displays
-            //MessageBox.Show("Thank You!", "Information Correct", MessageBoxButton.OK, MessageBoxImage.Information);
-        
-            //------------------------------------------------------------------------------------
 
-        string gender = comboBox1.SelectedItem.ToString();
+            string gender = comboBox1.SelectedItem.ToString();
 
             string gdv = "select Id FROM Lookup WHERE Category = 'Gender' AND value ='" + gender + "'";
             SqlCommand genderInt = new SqlCommand(gdv, con);

@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -27,18 +28,87 @@ namespace miniproject
 
         private void Savebutton_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text.Length == 0 )
+            if (con.State == ConnectionState.Closed)
             {
-                MessageBox.Show("please fill the above boxes ");
+                con.Open();
             }
-            else
+            if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" || textBox3.Text == "" || textBox4.Text == "" || textBox5.Text == "" ||
+                textBox7.Text == "")
+
+
             {
-                //   DegreecomboBox.Items.Add(NameBox.Text);
+                // display popup box
+                MessageBox.Show("Please fill in all fields", "Error", MessageBoxButtons.OK);
+                textBox1.Focus(); // set focus to lastNameTextBox
+                return;
+            } // end if 
+            // if first name format invalid show message
+            if (!Regex.Match(textBox1.Text, "^[A-Z][a-zA-Z]*$").Success)
+            {
+                // first name was incorrect
+                MessageBox.Show("Invalid first name", "Message", MessageBoxButtons.OK);
+                textBox1.Focus();
+                return;
+            } // end if 
+            // if last name format invalid show message
+            if (!Regex.Match(textBox2.Text, "^[A-Z][a-zA-Z]*$").Success)
+            {
+                // last name was incorrect
+                MessageBox.Show("Invalid last name", "Message", MessageBoxButtons.OK);
+                textBox2.Focus();
+                return;
+            }// end if          
+             // if address format invalid show message
+             // if (!Regex.Match(textBox7.Text, @"^[0-9]+\s+([a-zA-Z]+|[a-zA-Z]+\s[a-zA-Z]+)$").Success)
+             //  //if (!Regex.Match(phoneTextBox.Text, @"^[1-9]\d{2}-[1-9]\d{2}-\d{4}$").Success)
+            // (@"[\d]"
+            if (!Regex.Match(textBox7.Text, @"[\d]").Success)
+            {
+                // address was incorrect
+                MessageBox.Show("Invalid salary", "Message", MessageBoxButtons.OK);
+                textBox7.Focus();
+                return;
+            } // end if
 
-                //dataGridViewManage.Rows[0].Cells[0].Value = st.Courses[i].semester;
+            //------------------------------------------------------------------------------------
+            // if city format invalid show message
 
-            }
+            if (!Regex.Match(textBox3.Text, @"^([0-9]{4})\-([0-9]{7})$").Success)
+            {
+                // city was incorrect
+                MessageBox.Show("Invalid Contact Number", "Message", MessageBoxButtons.OK);
+                textBox3.Focus();
+                return;
+            }// end if 
+             // if state format invalid show message
+            if (!Regex.Match(textBox5.Text, @"(((0|1)[0-9]|2[0-9]|3[0-1])\/(0[1-9]|1[0-2])\/((19|20)\d\d))$").Success)
+            {
+                // state was incorrect
+                MessageBox.Show("Invalid date", "Message", MessageBoxButtons.OK);
+                textBox5.Focus();
+                return;
+            } // end if 
+              // if zip code format invalid show message
+            if (!Regex.Match(textBox4.Text, @"^([\w]+)@([\w]+)\.([\w]+)$").Success)
+            {
+                // zip was incorrect
+                MessageBox.Show("Invalid email address", "Message", MessageBoxButtons.OK);
+                textBox4.Focus();
+                return;
+            } // end if
+              //// if phone number format invalid show message
+              //if (!Regex.Match(phoneTextBox.Text, @"^[1-9]\d{2}-[1-9]\d{2}-\d{4}$").Success)
+              //{
+              //    // phone number was incorrect
+              //    MessageBox.Show("Invalid phone number", "Message", MessageBoxButton.OK, MessageBoxImage.Error);
+              //    phoneTextBox.Focus();
+              //    return;
+              //}// end if 
+              //// information is valid, signal user and exit application
+              //this.Hide(); // hide main window while MessageBox displays
+              //MessageBox.Show("Thank You!", "Information Correct", MessageBoxButton.OK, MessageBoxImage.Information);
 
+            //------------------------------------------------------------------------------------
 
 
 
