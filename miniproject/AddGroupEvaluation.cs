@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -50,9 +51,26 @@ namespace miniproject
         private void Savebutton_Click(object sender, EventArgs e)
         {
 
+            if (con.State == ConnectionState.Closed)
+            {
+                con.Open();
+            }
+            if (textBox1.Text == "" )
 
-            con.Open();
 
+            {
+                MessageBox.Show("Please fill in all fields", "Error", MessageBoxButtons.OK);
+                textBox1.Focus(); // set focus to lastNameTextBox
+                return;
+            } // end if
+
+            if (!Regex.Match(textBox1.Text, @"[\d]").Success)
+            {
+                // address was incorrect
+                MessageBox.Show("Invalid salary", "Message", MessageBoxButtons.OK);
+                textBox1.Focus();
+                return;
+            } // end if
 
 
             string gender = comboBox1.SelectedItem.ToString();
@@ -175,6 +193,11 @@ namespace miniproject
             Group f4 = new Group();
             this.Hide();
             f4.Show();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
