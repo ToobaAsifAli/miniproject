@@ -146,6 +146,12 @@
     <Compile Include="GroupStudent.Designer.cs">
       <DependentUpon>GroupStudent.cs</DependentUpon>
     </Compile>
+    <Compile Include="Management.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Management.Designer.cs">
+      <DependentUpon>Management.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="ProjectAdvisor.cs">
       <SubType>Form</SubType>
@@ -213,6 +219,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GroupStudent.resx">
       <DependentUpon>GroupStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Management.resx">
+      <DependentUpon>Management.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProjectAdvisor.resx">
       <DependentUpon>ProjectAdvisor.cs</DependentUpon>
