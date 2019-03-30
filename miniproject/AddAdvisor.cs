@@ -215,13 +215,14 @@ namespace miniproject
 
                 //cmd.CommandText = string.Format("DELETE FROM Person WHERE Email = '{0}'", email);
                 //cmd.ExecuteNonQuery();
-                con.Close();
-                disp_data();
+                
                 if (MessageBox.Show("Do you really want to delete this record", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
                     MessageBox.Show("Record has been deleted successfully");
                 }
+                con.Close();
+                disp_data();
             }
             catch (Exception Error)
             {

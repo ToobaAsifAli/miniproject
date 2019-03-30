@@ -112,10 +112,7 @@ namespace miniproject
 
                 //cmd.CommandText = "insert into Evaluation values('" + gender + "','" + g + "','" + textBox1.Text + "','" + dt+ "')";// + "insert into Student values('" + textBox7.Text + "')";
                 //cmd.ExecuteNonQuery();
-                con.Close();
-
-                comboBox1.Text = "";
-                comboBox2.Text = "";
+               
 
                 //   textBox7.Text = "";
                 //disp_data();
@@ -124,6 +121,10 @@ namespace miniproject
 
                     MessageBox.Show("Record has been inserted successfully");
                 }
+                con.Close();
+
+                comboBox1.Text = "";
+                comboBox2.Text = "";
             }
             catch (Exception Error)
             {

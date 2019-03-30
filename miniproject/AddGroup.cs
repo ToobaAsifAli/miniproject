@@ -51,17 +51,17 @@ namespace miniproject
             DateTime dt = DateTime.Now;
             cmd.CommandText = "insert into [Group] values('" + dt + "')";// + "insert into Student values('" + textBox7.Text + "')";
             cmd.ExecuteNonQuery();
-            con.Close();
-            textBox1.Text = "";
-           
-          //  disp_data();
+         
             if (MessageBox.Show("Do you really want to add this Group", "Insert", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
 
                 MessageBox.Show("Record has been inserted successfully");
             }
-           
 
+            con.Close();
+            textBox1.Text = "";
+
+              disp_data();
         }
 
         private void button1_Click(object sender, EventArgs e)
