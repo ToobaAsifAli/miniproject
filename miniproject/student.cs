@@ -272,7 +272,10 @@ namespace miniproject
     
         public void disp_data()
         {
-            con.Open();
+            if (con.State == ConnectionState.Closed)
+            {
+                con.Open();
+            }
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = "SELECT Person.Id ,Person.FirstName, Person.LastName, Person.Contact, Person.Email, Person.DateOfBirth, Person.Gender, Student.RegistrationNo FROM Person JOIN Student ON Student.Id = Person.Id";
@@ -329,7 +332,10 @@ namespace miniproject
             {
 
 
-                con.Open();
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
                 string display = String.Format("DELETE FROM Student WHERE RegistrationNo = '{0}'", textBox7.Text);
                 SqlCommand cmd = new SqlCommand(display, con);
                 cmd.ExecuteNonQuery();

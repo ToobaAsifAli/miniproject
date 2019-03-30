@@ -91,7 +91,10 @@ namespace miniproject
             try
             {
 
-                con.Open();
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
 
 
 

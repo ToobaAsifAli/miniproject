@@ -121,8 +121,10 @@ namespace miniproject
             try
             {
 
-                con.Open();
-
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
 
 
                 string status = comboBox3.SelectedItem.ToString();

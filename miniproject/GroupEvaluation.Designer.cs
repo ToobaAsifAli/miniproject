@@ -222,6 +222,7 @@
             this.Savebutton.TabIndex = 32;
             this.Savebutton.Text = "Save";
             this.Savebutton.UseVisualStyleBackColor = false;
+            this.Savebutton.Click += new System.EventHandler(this.Savebutton_Click);
             // 
             // DateofBirthlabel
             // 
