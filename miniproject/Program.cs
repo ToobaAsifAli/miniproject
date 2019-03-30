@@ -16,7 +16,7 @@ namespace miniproject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GroupStudent());
+            Application.Run(new Form1());
         }
     }
 }

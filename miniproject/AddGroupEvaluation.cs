@@ -23,7 +23,14 @@ namespace miniproject
 
         private void Displaybutton_Click(object sender, EventArgs e)
         {
-            disp_data();
+            try
+            {
+                disp_data();
+            }
+            catch (Exception Error)
+            {
+                MessageBox.Show(Error.Message);
+            }
         }
 
         public void disp_data()
@@ -50,55 +57,62 @@ namespace miniproject
 
         private void Savebutton_Click(object sender, EventArgs e)
         {
-
-            if (con.State == ConnectionState.Closed)
+            try
             {
-                con.Open();
+
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+                if (textBox1.Text == "")
+
+
+                {
+                    MessageBox.Show("Please fill in all fields", "Error", MessageBoxButtons.OK);
+                    textBox1.Focus(); // set focus to lastNameTextBox
+                    return;
+                } // end if
+
+                if (!Regex.Match(textBox1.Text, @"[\d]").Success)
+                {
+                    // address was incorrect
+                    MessageBox.Show("Invalid salary", "Message", MessageBoxButtons.OK);
+                    textBox1.Focus();
+                    return;
+                } // end if
+
+
+                string gender = comboBox1.SelectedItem.ToString();
+                string g = comboBox2.SelectedItem.ToString();
+                DateTime dt = DateTime.Now;
+
+                string ps = "INSERT into GroupEvaluation(GroupId, EvaluationId ,ObtainedMarks, EvaluationDate ) values ('" + gender + "' , '" + g + "' , '" + textBox1.Text + "','" + dt + "')";
+
+                SqlCommand persi = new SqlCommand(ps, con);
+                int a = persi.ExecuteNonQuery();
+
+                //SqlCommand cmd = con.CreateCommand();
+                //cmd.CommandType = CommandType.Text;
+
+                //cmd.CommandText = "insert into Evaluation values('" + gender + "','" + g + "','" + textBox1.Text + "','" + dt+ "')";// + "insert into Student values('" + textBox7.Text + "')";
+                //cmd.ExecuteNonQuery();
+                con.Close();
+                textBox1.Text = "";
+
+                comboBox1.Text = "";
+                comboBox2.Text = "";
+
+                //   textBox7.Text = "";
+                //disp_data();
+                if (MessageBox.Show("Do you really want to add this Evaluation", "Insert", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+
+                    MessageBox.Show("Record has been inserted successfully");
+                }
             }
-            if (textBox1.Text == "" )
-
-
+            catch (Exception Error)
             {
-                MessageBox.Show("Please fill in all fields", "Error", MessageBoxButtons.OK);
-                textBox1.Focus(); // set focus to lastNameTextBox
-                return;
-            } // end if
-
-            if (!Regex.Match(textBox1.Text, @"[\d]").Success)
-            {
-                // address was incorrect
-                MessageBox.Show("Invalid salary", "Message", MessageBoxButtons.OK);
-                textBox1.Focus();
-                return;
-            } // end if
-
-
-            string gender = comboBox1.SelectedItem.ToString();
-            string g = comboBox2.SelectedItem.ToString();
-            DateTime dt = DateTime.Now;
-
-            string ps = "INSERT into GroupEvaluation(GroupId, EvaluationId ,ObtainedMarks, EvaluationDate ) values ('" + gender+ "' , '" + g + "' , '" + textBox1.Text + "','" +dt+"')";
-
-            SqlCommand persi = new SqlCommand(ps, con);
-            int a = persi.ExecuteNonQuery();
-
-            //SqlCommand cmd = con.CreateCommand();
-            //cmd.CommandType = CommandType.Text;
-            
-            //cmd.CommandText = "insert into Evaluation values('" + gender + "','" + g + "','" + textBox1.Text + "','" + dt+ "')";// + "insert into Student values('" + textBox7.Text + "')";
-            //cmd.ExecuteNonQuery();
-            con.Close();
-            textBox1.Text = "";
-           
-           comboBox1.Text = "";
-           comboBox2.Text = "";
-
-            //   textBox7.Text = "";
-            //disp_data();
-            if (MessageBox.Show("Do you really want to add this Evaluation", "Insert", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-
-                MessageBox.Show("Record has been inserted successfully");
+                MessageBox.Show(Error.Message);
             }
         }
 
@@ -128,56 +142,71 @@ namespace miniproject
 
         private void Updatebutton_Click(object sender, EventArgs e)
         {
-            if (con.State == ConnectionState.Closed)
+
+            try
             {
-                con.Open();
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
+
+
+                string gender = comboBox1.SelectedItem.ToString();
+                string g = comboBox2.SelectedItem.ToString();
+                DateTime dt = DateTime.Now;
+
+
+                //string que1 = string.Format("SELECT Id from P Where Email = '" + textBox4.Text + "'");
+                //SqlCommand cmd = new SqlCommand(que1, con);
+                //var aa = cmd.ExecuteScalar().ToString();
+                //int s1 = int.Parse(aa);
+                //// int id =int.Parse( cmd.ExecuteScalar());
+
+                //cmd.ExecuteNonQuery();
+
+                string ps1 = "Update GroupEvaluation set ObtainedMarks ='" + textBox1.Text + "', EvaluationDate ='" + dt + "'  WHERE (GroupId = '" + gender + "'and EvaluationId ='" + g + "')";
+                SqlCommand pesi = new SqlCommand(ps1, con);
+                int a1 = pesi.ExecuteNonQuery();
+                disp_data();
+                con.Close();
             }
-
-
-
-            string gender = comboBox1.SelectedItem.ToString();
-            string g = comboBox2.SelectedItem.ToString();
-            DateTime dt = DateTime.Now;
-            
-
-            //string que1 = string.Format("SELECT Id from P Where Email = '" + textBox4.Text + "'");
-            //SqlCommand cmd = new SqlCommand(que1, con);
-            //var aa = cmd.ExecuteScalar().ToString();
-            //int s1 = int.Parse(aa);
-            //// int id =int.Parse( cmd.ExecuteScalar());
-
-            //cmd.ExecuteNonQuery();
-
-            string ps1 = "Update GroupEvaluation set ObtainedMarks ='" + textBox1.Text + "', EvaluationDate ='"+dt+"'  WHERE (GroupId = '" + gender + "'and EvaluationId ='" + g +"')";
-            SqlCommand pesi = new SqlCommand(ps1, con);
-            int a1 = pesi.ExecuteNonQuery();
-            disp_data();
-            con.Close();
+            catch (Exception Error)
+            {
+                MessageBox.Show(Error.Message);
+            }
         }
 
         private void Deletebutton_Click(object sender, EventArgs e)
         {
-            if (con.State == ConnectionState.Closed)
+            try
             {
-                con.Open();
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
+                string gender = comboBox1.SelectedItem.ToString();
+                string g = comboBox2.SelectedItem.ToString();
+
+
+                string display = String.Format("DELETE FROM GroupEvaluation WHERE  (GroupId = '" + gender + "'and EvaluationId = '" + g + "')");
+                SqlCommand cmd = new SqlCommand(display, con);
+                cmd.ExecuteNonQuery();
+
+                //cmd.CommandText = string.Format("DELETE FROM Person WHERE Email = '{0}'", email);
+                //cmd.ExecuteNonQuery();
+                con.Close();
+                disp_data();
+                if (MessageBox.Show("Do you really want to delete this record", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+
+                    MessageBox.Show("Record has been deleted successfully");
+                }
             }
-
-            string gender = comboBox1.SelectedItem.ToString();
-            string g = comboBox2.SelectedItem.ToString();
-
-
-            string display = String.Format("DELETE FROM GroupEvaluation WHERE  (GroupId = '" + gender + "'and EvaluationId = '" + g + "')");
-            SqlCommand cmd = new SqlCommand(display, con);
-            cmd.ExecuteNonQuery();
-
-            //cmd.CommandText = string.Format("DELETE FROM Person WHERE Email = '{0}'", email);
-            //cmd.ExecuteNonQuery();
-            con.Close();
-            disp_data();
-            if (MessageBox.Show("Do you really want to delete this record", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            catch (Exception Error)
             {
-
-                MessageBox.Show("Record has been deleted successfully");
+                MessageBox.Show(Error.Message);
             }
         }
 

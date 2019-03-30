@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,9 @@ namespace miniproject
 {
     public partial class Group : MaterialSkin.Controls.MaterialForm
     {
+
+        SqlConnection con = new SqlConnection("Data Source=DESKTOP-R6RA1PL\\TOOBAASIF;Initial Catalog=ProjectA;Persist Security Info=True;User ID=sa;Password=1212");
+
         public Group()
         {
             InitializeComponent();
@@ -38,9 +42,21 @@ namespace miniproject
 
         private void button5_Click(object sender, EventArgs e)
         {
-            AddGroupStudent f5 = new AddGroupStudent();
-            this.Hide();
-            f5.Show();
+            con.Open();
+            SqlCommand cmd = con.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            DateTime dt = DateTime.Now;
+            cmd.CommandText = "insert into [Group] values('" + dt + "')";// + "insert into Student values('" + textBox7.Text + "')";
+            cmd.ExecuteNonQuery();
+            con.Close();
+          //  textBox1.Text = "";
+
+            //  disp_data();
+            if (MessageBox.Show("Do you really want to add this Group", "Insert", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+
+                MessageBox.Show("Record has been inserted successfully");
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)

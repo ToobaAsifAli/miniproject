@@ -135,102 +135,134 @@ namespace miniproject
 
         private void Savebutton_Click(object sender, EventArgs e)
         {
-            if (con.State == ConnectionState.Closed)
+            try
             {
-                con.Open();
+
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+                if (textBox2.Text == "" || richTextBox1.Text == "")
+
+
+                {
+                    MessageBox.Show("Please fill in all fields", "Error", MessageBoxButtons.OK);
+                    textBox2.Focus(); // set focus to lastNameTextBox
+                    return;
+                } // end if
+
+
+                if (!Regex.Match(textBox2.Text, "^[A-Z][a-zA-Z]*$").Success)
+                {
+                    // first name was incorrect
+                    MessageBox.Show("Invalid first title", "Message", MessageBoxButtons.OK);
+                    textBox2.Focus();
+                    return;
+                } // end if
+
+                if (!Regex.Match(richTextBox1.Text, "^[A-Z][a-zA-Z]*$").Success)
+                {
+                    // first name was incorrect
+                    MessageBox.Show("Invalid description", "Message", MessageBoxButtons.OK);
+                    textBox2.Focus();
+                    return;
+                } // end if
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "insert into Project values('" + textBox2.Text + "','" + richTextBox1.Text + "')";// + "insert into Student values('" + textBox7.Text + "')";
+                cmd.ExecuteNonQuery();
+                con.Close();
+                richTextBox1.Text = "";
+                textBox2.Text = "";
+
+
+                //   textBox7.Text = "";
+                //disp_data();
+                if (MessageBox.Show("Do you really want to add this Project", "Insert", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+
+                    MessageBox.Show("Record has been inserted successfully");
+                }
+
             }
-            if (textBox2.Text == "" ||richTextBox1.Text == "")
-
-
+            catch (Exception Error)
             {
-                MessageBox.Show("Please fill in all fields", "Error", MessageBoxButtons.OK);
-                textBox2.Focus(); // set focus to lastNameTextBox
-                return;
-            } // end if
-
-
-            if (!Regex.Match(textBox2.Text, "^[A-Z][a-zA-Z]*$").Success)
-            {
-                // first name was incorrect
-                MessageBox.Show("Invalid first title", "Message", MessageBoxButtons.OK);
-                textBox2.Focus();
-                return;
-            } // end if
-
-            if (!Regex.Match(richTextBox1.Text, "^[A-Z][a-zA-Z]*$").Success)
-            {
-                // first name was incorrect
-                MessageBox.Show("Invalid description", "Message", MessageBoxButtons.OK);
-                textBox2.Focus();
-                return;
-            } // end if
-            SqlCommand cmd = con.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "insert into Project values('" + textBox2.Text + "','" + richTextBox1.Text + "')";// + "insert into Student values('" + textBox7.Text + "')";
-            cmd.ExecuteNonQuery();
-            con.Close();
-            richTextBox1.Text = "";
-            textBox2.Text = "";
-
-
-            //   textBox7.Text = "";
-            //disp_data();
-            if (MessageBox.Show("Do you really want to add this Project", "Insert", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-
-                MessageBox.Show("Record has been inserted successfully");
+                MessageBox.Show(Error.Message);
             }
         }
 
         private void Updatebutton_Click(object sender, EventArgs e)
         {
-            con.Open();
-            SqlCommand cmd = con.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-
-     
-            cmd.CommandText = "update Project set Description ='" + richTextBox1.Text + "' where Title = '" + textBox2.Text + "'";
-            cmd.ExecuteNonQuery();
-            //cmd.CommandText = "update Evaluation set TotalWeightage ='" + textBox3.Text + "' where Name = '" + textBox1.Text + "'";
-
-            //cmd.ExecuteNonQuery();
-            con.Close();
-
-            disp_data();
-
-
-            //dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
-            if (MessageBox.Show("Do you really want to Update this record", "Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            try
             {
 
-                MessageBox.Show("Record has been updated successfully");
+                con.Open();
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+
+
+                cmd.CommandText = "update Project set Description ='" + richTextBox1.Text + "' where Title = '" + textBox2.Text + "'";
+                cmd.ExecuteNonQuery();
+                //cmd.CommandText = "update Evaluation set TotalWeightage ='" + textBox3.Text + "' where Name = '" + textBox1.Text + "'";
+
+                //cmd.ExecuteNonQuery();
+                con.Close();
+
+                disp_data();
+
+
+                //dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
+                if (MessageBox.Show("Do you really want to Update this record", "Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+
+                    MessageBox.Show("Record has been updated successfully");
+                }
+            }
+            catch (Exception Error)
+            {
+                MessageBox.Show(Error.Message);
             }
         }
 
         private void Displaybutton_Click(object sender, EventArgs e)
         {
-            disp_data();
+
+            try
+            {
+                disp_data();
+            }
+            catch (Exception Error)
+            {
+                MessageBox.Show(Error.Message);
+            }
         }
 
         private void Deletebutton_Click(object sender, EventArgs e)
         {
-            con.Open();
-            SqlCommand cmd = con.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            // cmd.CommandText = "delete from Person where values('" + textBox1.Text + "','" + textBox2.Text + "','" + textBox3.Text + "','" + textBox4.Text + "','" + textBox5.Text + "','" + textBox6.Text + "')";
-            cmd.CommandText = "delete from Project where Title ='" + textBox2.Text + "'";
-
-            cmd.ExecuteNonQuery();
-            con.Close();
-
-            disp_data();
-
-            if (MessageBox.Show("Do you really want to delete this record", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            try
             {
 
-                MessageBox.Show("Record has been deleted successfully");
-            }
+                con.Open();
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                // cmd.CommandText = "delete from Person where values('" + textBox1.Text + "','" + textBox2.Text + "','" + textBox3.Text + "','" + textBox4.Text + "','" + textBox5.Text + "','" + textBox6.Text + "')";
+                cmd.CommandText = "delete from Project where Title ='" + textBox2.Text + "'";
 
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                disp_data();
+
+                if (MessageBox.Show("Do you really want to delete this record", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+
+                    MessageBox.Show("Record has been deleted successfully");
+                }
+            }
+            catch (Exception Error)
+            {
+                MessageBox.Show(Error.Message);
+            }
             //dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
 
         }

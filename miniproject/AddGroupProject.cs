@@ -27,8 +27,16 @@ namespace miniproject
 
         private void Displaybutton_Click(object sender, EventArgs e)
         {
-            disp_data();
+            try
+            {
+                disp_data();
+            }
+            catch (Exception Error)
+            {
+                MessageBox.Show(Error.Message);
+            }
         }
+
 
         public void disp_data()
         {
@@ -80,90 +88,113 @@ namespace miniproject
 
         private void Savebutton_Click(object sender, EventArgs e)
         {
-            con.Open();
-
-
-
-            string gender = comboBox1.SelectedItem.ToString();
-            string g = comboBox2.SelectedItem.ToString();
-            DateTime dt = DateTime.Now;
-
-            string ps = "INSERT into GroupProject(GroupId, ProjectId , AssignmentDate ) values ('" + gender + "' , '" + g + "' , '" + dt + "')";
-
-            SqlCommand persi = new SqlCommand(ps, con);
-            int a = persi.ExecuteNonQuery();
-
-            //SqlCommand cmd = con.CreateCommand();
-            //cmd.CommandType = CommandType.Text;
-
-            //cmd.CommandText = "insert into Evaluation values('" + gender + "','" + g + "','" + textBox1.Text + "','" + dt+ "')";// + "insert into Student values('" + textBox7.Text + "')";
-            //cmd.ExecuteNonQuery();
-            con.Close();
-            
-            comboBox1.Text = "";
-            comboBox2.Text = "";
-
-            //   textBox7.Text = "";
-            //disp_data();
-            if (MessageBox.Show("Do you really want to add this Evaluation", "Insert", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            try
             {
 
-                MessageBox.Show("Record has been inserted successfully");
+                con.Open();
+
+
+
+                string gender = comboBox1.SelectedItem.ToString();
+                string g = comboBox2.SelectedItem.ToString();
+                DateTime dt = DateTime.Now;
+
+                string ps = "INSERT into GroupProject(GroupId, ProjectId , AssignmentDate ) values ('" + gender + "' , '" + g + "' , '" + dt + "')";
+
+                SqlCommand persi = new SqlCommand(ps, con);
+                int a = persi.ExecuteNonQuery();
+
+                //SqlCommand cmd = con.CreateCommand();
+                //cmd.CommandType = CommandType.Text;
+
+                //cmd.CommandText = "insert into Evaluation values('" + gender + "','" + g + "','" + textBox1.Text + "','" + dt+ "')";// + "insert into Student values('" + textBox7.Text + "')";
+                //cmd.ExecuteNonQuery();
+                con.Close();
+
+                comboBox1.Text = "";
+                comboBox2.Text = "";
+
+                //   textBox7.Text = "";
+                //disp_data();
+                if (MessageBox.Show("Do you really want to add this Evaluation", "Insert", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+
+                    MessageBox.Show("Record has been inserted successfully");
+                }
+            }
+            catch (Exception Error)
+            {
+                MessageBox.Show(Error.Message);
             }
         }
 
         private void Updatebutton_Click(object sender, EventArgs e)
         {
-            if (con.State == ConnectionState.Closed)
+            try
             {
-                con.Open();
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
+
+
+                string gender = comboBox1.SelectedItem.ToString();
+                string g = comboBox2.SelectedItem.ToString();
+                DateTime dt = DateTime.Now;
+
+
+                //string que1 = string.Format("SELECT Id from P Where Email = '" + textBox4.Text + "'");
+                //SqlCommand cmd = new SqlCommand(que1, con);
+                //var aa = cmd.ExecuteScalar().ToString();
+                //int s1 = int.Parse(aa);
+                //// int id =int.Parse( cmd.ExecuteScalar());
+
+                //cmd.ExecuteNonQuery();
+
+                string ps1 = "Update GroupProject set  AssignmentDate ='" + dt + "'  WHERE (GroupId = '" + gender + "'and ProjectId ='" + g + "')";
+                SqlCommand pesi = new SqlCommand(ps1, con);
+                int a1 = pesi.ExecuteNonQuery();
+                disp_data();
+                con.Close();
             }
-
-
-
-            string gender = comboBox1.SelectedItem.ToString();
-            string g = comboBox2.SelectedItem.ToString();
-            DateTime dt = DateTime.Now;
-
-
-            //string que1 = string.Format("SELECT Id from P Where Email = '" + textBox4.Text + "'");
-            //SqlCommand cmd = new SqlCommand(que1, con);
-            //var aa = cmd.ExecuteScalar().ToString();
-            //int s1 = int.Parse(aa);
-            //// int id =int.Parse( cmd.ExecuteScalar());
-
-            //cmd.ExecuteNonQuery();
-
-            string ps1 = "Update GroupProject set  AssignmentDate ='" + dt + "'  WHERE (GroupId = '" + gender + "'and ProjectId ='" + g + "')";
-            SqlCommand pesi = new SqlCommand(ps1, con);
-            int a1 = pesi.ExecuteNonQuery();
-            disp_data();
-            con.Close();
+            catch (Exception Error)
+            {
+                MessageBox.Show(Error.Message);
+            }
         }
 
         private void Deletebutton_Click(object sender, EventArgs e)
         {
-            if (con.State == ConnectionState.Closed)
+
+            try
             {
-                con.Open();
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
+                string gender = comboBox1.SelectedItem.ToString();
+                string g = comboBox2.SelectedItem.ToString();
+
+
+                string display = String.Format("DELETE FROM GroupProject WHERE  (GroupId = '" + gender + "'and ProjectId = '" + g + "')");
+                SqlCommand cmd = new SqlCommand(display, con);
+                cmd.ExecuteNonQuery();
+
+                //cmd.CommandText = string.Format("DELETE FROM Person WHERE Email = '{0}'", email);
+                //cmd.ExecuteNonQuery();
+                con.Close();
+                disp_data();
+                if (MessageBox.Show("Do you really want to delete this record", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+
+                    MessageBox.Show("Record has been deleted successfully");
+                }
             }
-
-            string gender = comboBox1.SelectedItem.ToString();
-            string g = comboBox2.SelectedItem.ToString();
-
-
-            string display = String.Format("DELETE FROM GroupProject WHERE  (GroupId = '" + gender + "'and ProjectId = '" + g + "')");
-            SqlCommand cmd = new SqlCommand(display, con);
-            cmd.ExecuteNonQuery();
-
-            //cmd.CommandText = string.Format("DELETE FROM Person WHERE Email = '{0}'", email);
-            //cmd.ExecuteNonQuery();
-            con.Close();
-            disp_data();
-            if (MessageBox.Show("Do you really want to delete this record", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            catch (Exception Error)
             {
-
-                MessageBox.Show("Record has been deleted successfully");
+                MessageBox.Show(Error.Message);
             }
         }
 

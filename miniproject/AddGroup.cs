@@ -48,7 +48,8 @@ namespace miniproject
             con.Open();
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "insert into [Group] values('" + textBox1.Text + "')";// + "insert into Student values('" + textBox7.Text + "')";
+            DateTime dt = DateTime.Now;
+            cmd.CommandText = "insert into [Group] values('" + dt + "')";// + "insert into Student values('" + textBox7.Text + "')";
             cmd.ExecuteNonQuery();
             con.Close();
             textBox1.Text = "";
