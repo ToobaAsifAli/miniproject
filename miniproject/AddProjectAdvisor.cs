@@ -169,6 +169,8 @@ namespace miniproject
                 comboBox1.Text = "";
                 comboBox2.Text = "";
                 comboBox3.Text = "";
+                disp_data();
+
             }
             catch (Exception Error)
             {

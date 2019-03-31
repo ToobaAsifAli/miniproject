@@ -291,7 +291,7 @@ namespace miniproject
                 comboBox2.Text = "";
 
                 //   textBox7.Text = "";
-                //disp_data();
+                disp_data();
               
             }
             catch (Exception Error)

@@ -163,29 +163,30 @@ namespace miniproject
                     return;
                 } // end if
 
-                if (!Regex.Match(richTextBox1.Text, "^[A-Z][a-zA-Z]*$").Success)
-                {
-                    // first name was incorrect
-                    MessageBox.Show("Invalid description", "Message", MessageBoxButtons.OK);
-                    textBox2.Focus();
-                    return;
-                } // end if
+                //if (!Regex.Match(richTextBox1.Text, "^[A-Z][a-zA-Z]*$").Success)
+                //{
+                //    // first name was incorrect
+                //    MessageBox.Show("Invalid description", "Message", MessageBoxButtons.OK);
+                //    textBox2.Focus();
+                //    return;
+                //} // end if
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "insert into Project values('" + textBox2.Text + "','" + richTextBox1.Text + "')";// + "insert into Student values('" + textBox7.Text + "')";
+                cmd.CommandText = "insert into Project values('" + richTextBox1.Text + "','" + textBox2.Text + "')";// + "insert into Student values('" + textBox7.Text + "')";
                 cmd.ExecuteNonQuery();
+              
+                if (MessageBox.Show("Do you really want to add this Project", "Insert", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+
+                    MessageBox.Show("Record has been inserted successfully");
+                }
                 con.Close();
                 richTextBox1.Text = "";
                 textBox2.Text = "";
 
 
                 //   textBox7.Text = "";
-                //disp_data();
-                if (MessageBox.Show("Do you really want to add this Project", "Insert", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-
-                    MessageBox.Show("Record has been inserted successfully");
-                }
+                disp_data();
 
             }
             catch (Exception Error)
