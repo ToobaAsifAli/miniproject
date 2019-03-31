@@ -50,6 +50,7 @@
             // button3
             // 
             this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Location = new System.Drawing.Point(292, 368);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(197, 74);
@@ -60,6 +61,7 @@
             // button2
             // 
             this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Location = new System.Drawing.Point(292, 288);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(197, 74);
@@ -70,6 +72,7 @@
             // button1
             // 
             this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Location = new System.Drawing.Point(292, 208);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(197, 74);

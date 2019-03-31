@@ -72,6 +72,7 @@
             // button1
             // 
             this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Location = new System.Drawing.Point(242, 320);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(197, 74);
@@ -82,6 +83,7 @@
             // button5
             // 
             this.button5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button5.BackgroundImage")));
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Location = new System.Drawing.Point(25, 320);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(197, 74);
