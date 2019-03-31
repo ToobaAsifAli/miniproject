@@ -230,7 +230,7 @@ namespace miniproject
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Group f4 = new Group();
+            Management f4 = new Management();
             this.Hide();
             f4.Show();
         }
