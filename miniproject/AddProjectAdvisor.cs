@@ -154,11 +154,7 @@ namespace miniproject
 
                 //cmd.CommandText = "insert into Evaluation values('" + gender + "','" + g + "','" + textBox1.Text + "','" + dt+ "')";// + "insert into Student values('" + textBox7.Text + "')";
                 //cmd.ExecuteNonQuery();
-                con.Close();
-                //    textBox1.Text = "";
-                //   textBox2.Text = "";
-                comboBox1.Text = "";
-                comboBox2.Text = "";
+               
 
                 //   textBox7.Text = "";
                 //disp_data();
@@ -167,7 +163,12 @@ namespace miniproject
 
                     MessageBox.Show("Record has been inserted successfully");
                 }
-
+                con.Close();
+                //    textBox1.Text = "";
+                //   textBox2.Text = "";
+                comboBox1.Text = "";
+                comboBox2.Text = "";
+                comboBox3.Text = "";
             }
             catch (Exception Error)
             {
@@ -244,6 +245,18 @@ namespace miniproject
                 string ps1 = "Update ProjectAdvisor set  AssignmentDate ='" + dt + "', AdvisorRole ='" + s + "'  WHERE (AdvisorId = '" + gender + "'and ProjectId ='" + g + "')";
                 SqlCommand pesi = new SqlCommand(ps1, con);
                 int a1 = pesi.ExecuteNonQuery();
+
+                if (MessageBox.Show("Do you really want to Update this record", "Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+
+                    MessageBox.Show("Record has been updated successfully");
+                }
+               
+                //    textBox1.Text = "";
+                //   textBox2.Text = "";
+                comboBox1.Text = "";
+                comboBox2.Text = "";
+                comboBox3.Text = "";
                 disp_data();
                 con.Close();
             }
@@ -273,13 +286,18 @@ namespace miniproject
 
                 //cmd.CommandText = string.Format("DELETE FROM Person WHERE Email = '{0}'", email);
                 //cmd.ExecuteNonQuery();
-                con.Close();
-                disp_data();
+                
                 if (MessageBox.Show("Do you really want to delete this record", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
                     MessageBox.Show("Record has been deleted successfully");
+
                 }
+                comboBox1.Text = "";
+                comboBox2.Text = "";
+                comboBox3.Text = "";
+                con.Close();
+                disp_data();
             }
             catch (Exception Error)
             {

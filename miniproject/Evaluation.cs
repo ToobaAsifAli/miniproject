@@ -184,17 +184,20 @@ namespace miniproject
                 cmd.CommandText = "insert into Evaluation values('" + textBox1.Text + "','" + textBox2.Text + "','" + textBox3.Text + "')";// + "insert into Student values('" + textBox7.Text + "')";
                 cmd.ExecuteNonQuery();
                 con.Close();
+
+
+                if (MessageBox.Show("Do you really want to add this Evaluation", "Insert", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+
+                    MessageBox.Show("Record has been inserted successfully");
+                }
                 textBox1.Text = "";
                 textBox2.Text = "";
                 textBox3.Text = "";
 
                 //   textBox7.Text = "";
                 //disp_data();
-                if (MessageBox.Show("Do you really want to add this Evaluation", "Insert", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-
-                    MessageBox.Show("Record has been inserted successfully");
-                }
+             
             }
             catch (Exception Error)
             {
@@ -229,17 +232,24 @@ namespace miniproject
                 cmd.CommandText = "delete from Evaluation where Name ='" + textBox1.Text + "'";
 
                 cmd.ExecuteNonQuery();
+
+
+                if (MessageBox.Show("Do you really want to delete this record", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+
+                    MessageBox.Show("Record has been deleted successfully");
+                }
+
+                textBox1.Text = "";
+                textBox2.Text = "";
+                textBox3.Text = "";
                 con.Close();
 
                 disp_data();
 
 
                 //dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
-                if (MessageBox.Show("Do you really want to delete this record", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-
-                    MessageBox.Show("Record has been deleted successfully");
-                }
+              
             }
             catch (Exception Error)
             {
@@ -265,17 +275,22 @@ namespace miniproject
                 cmd.CommandText = "update Evaluation set TotalWeightage ='" + textBox3.Text + "' where Name = '" + textBox1.Text + "'";
 
                 cmd.ExecuteNonQuery();
-                con.Close();
-
-                disp_data();
-
-
+              
                 //dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
                 if (MessageBox.Show("Do you really want to Update this record", "Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
                     MessageBox.Show("Record has been updated successfully");
                 }
+
+                textBox1.Text = "";
+                textBox2.Text = "";
+                textBox3.Text = "";
+                con.Close();
+
+                disp_data();
+
+
             }
             catch (Exception Error)
             {

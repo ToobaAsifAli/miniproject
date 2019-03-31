@@ -277,6 +277,13 @@ namespace miniproject
 
                 //cmd.CommandText = "insert into Evaluation values('" + gender + "','" + g + "','" + textBox1.Text + "','" + dt+ "')";// + "insert into Student values('" + textBox7.Text + "')";
                 //cmd.ExecuteNonQuery();
+
+
+                if (MessageBox.Show("Do you really want to add this GroupofStudents", "Insert", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+
+                    MessageBox.Show("Record has been inserted successfully");
+                }
                 con.Close();
                 //    textBox1.Text = "";
                 //   textBox2.Text = "";
@@ -285,11 +292,7 @@ namespace miniproject
 
                 //   textBox7.Text = "";
                 //disp_data();
-                if (MessageBox.Show("Do you really want to add this Evaluation", "Insert", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-
-                    MessageBox.Show("Record has been inserted successfully");
-                }
+              
             }
             catch (Exception Error)
             {
@@ -393,6 +396,16 @@ namespace miniproject
                 string ps1 = "Update GroupStudent set  AssignmentDate ='" + dt + "', Status ='" + s + "'  WHERE (GroupId = '" + gender + "'and StudentId ='" + g + "')";
                 SqlCommand pesi = new SqlCommand(ps1, con);
                 int a1 = pesi.ExecuteNonQuery();
+
+                  if (MessageBox.Show("Do you really want to Update this record", "Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+
+                    MessageBox.Show("Record has been updated successfully");
+                }
+
+                comboBox1.Text = "";
+                comboBox2.Text = "";
+                comboBox3.Text = "";
                 disp_data();
                 con.Close();
             }
