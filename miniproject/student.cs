@@ -90,10 +90,18 @@ namespace miniproject
 
 
 
-
+        //private DataTable MakeDataTable()
+        //{
+        //    DataTable list = new DataTable();
+        //    SqlDataAdapter da = new SqlDataAdapter(cmd);
+        //    da.Fill(list);
+        //    dataGridView1.DataSource = list;
+        //}
 
 
         //---------------------------------------------------------------------------------------------------
+
+
 
         private void Savebutton_Click(object sender, EventArgs e)
         {
@@ -104,6 +112,28 @@ namespace miniproject
                 {
                     con.Open();
                 }
+
+                //try
+                //{
+                //    DataTable dtb1 = MakeDataTable();
+                //    ExportDataTableToPdf(dtb1, @"C:\\test.pdf", "List");
+
+                //    if (cbxOpen.Checked)
+                //    {
+                //        System.Diagonstic.Process > Start(@"C:\\test.pdf");
+                //        this.WindowState = System.Windows.Forms.FormWindow.Minimized"
+
+                //    }
+                //}
+                //catch (Exception Error)
+                //{
+                //    MessageBox.Show(Error.Message);
+                //}
+
+
+
+
+
                 //---------------------------------------------------------------------------------------------------
                 //DataTable dtn = new DataTable();
                 //dtn = GetDataTable();

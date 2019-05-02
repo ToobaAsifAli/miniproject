@@ -40,3 +40,6 @@ C:\Users\ok\Documents\GitHub\miniproject\miniproject\obj\Debug\miniproject.Group
 C:\Users\ok\Documents\GitHub\miniproject\miniproject\obj\Debug\miniproject.GroupProject.resources
 C:\Users\ok\Documents\GitHub\miniproject\miniproject\obj\Debug\miniproject.ProjectAdvisor.resources
 C:\Users\ok\Documents\GitHub\miniproject\miniproject\obj\Debug\miniproject.Management.resources
+C:\Users\ok\Documents\GitHub\miniproject\miniproject\bin\Debug\itextsharp.dll
+C:\Users\ok\Documents\GitHub\miniproject\miniproject\bin\Debug\itextsharp.xml
+C:\Users\ok\Documents\GitHub\miniproject\miniproject\obj\Debug\miniproject.Report.resources

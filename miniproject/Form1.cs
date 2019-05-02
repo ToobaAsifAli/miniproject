@@ -64,5 +64,19 @@ namespace miniproject
             this.Hide();
             f6.Show();
         }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            Report f7 = new Report();
+            this.Hide();
+            f7.Show();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Report f7 = new Report();
+            this.Hide();
+            f7.Show();
+        }
     }
 }
